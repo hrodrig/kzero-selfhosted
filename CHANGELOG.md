@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Upstream pin:** docs, Docker examples, and kind e2e target **kzero** [v0.4.0](https://github.com/hrodrig/kzero/releases/tag/v0.4.0) (`run.execution`, native workload executor).
 - **kind e2e:** live config sets **`run.execution: native`**; **`kzero analyze`** smoke expects **`Run execution:`** on stdout.
-- **Docs:** **`run/docker/README.md`** and example README describe **`Run execution:`** in **`analyze`** output.
+- **Docs:** **`run/docker/README.md`** and example README describe **`Run execution:`** in **`analyze`** output; root **`README.md`** rewritten for **v0.4.0** scope and host requirements; **gghstats clones** badge.
 
 ## [0.1.1] - 2026-06-04
 
