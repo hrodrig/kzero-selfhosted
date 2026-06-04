@@ -1,0 +1,348 @@
+# Synthetic workloads for kzero kind e2e (namespace kzero-e2e).
+# Typical stack: web + counter (Postgres-backed) + cache (STS) + Postgres + Redis + RabbitMQ + lightweight "obs" Deployment.
+# obs is a Deployment (not DaemonSet): kzero uses kubectl scale, which requires a /scale subresource (DaemonSet has none).
+# Keep names in sync with testing/kind/kzero-e2e.yaml and kzero-e2e-dry-run.yaml.
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kzero-e2e
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cache
+  namespace: kzero-e2e
+spec:
+  clusterIP: None
+  selector:
+    app: cache
+  ports:
+    - port: 80
+      name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: kzero-e2e
+spec:
+  selector:
+    app: postgres
+  ports:
+    - port: 5432
+      name: postgres
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: kzero-e2e
+spec:
+  selector:
+    app: redis
+  ports:
+    - port: 6379
+      name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbit
+  namespace: kzero-e2e
+spec:
+  selector:
+    app: rabbit
+  ports:
+    - port: 5672
+      name: amqp
+    - port: 15672
+      name: management
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: counter
+  namespace: kzero-e2e
+spec:
+  selector:
+    app: counter
+  ports:
+    - port: 8080
+      name: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: kzero-e2e
+  labels:
+    app.kubernetes.io/name: web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: counter
+  namespace: kzero-e2e
+  labels:
+    app.kubernetes.io/name: counter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: counter
+  template:
+    metadata:
+      labels:
+        app: counter
+    spec:
+      containers:
+        - name: counter
+          image: kzero-e2e-counter:e2e
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PGHOST
+              value: postgres
+            - name: PGPORT
+              value: "5432"
+            - name: PGUSER
+              value: "app"
+            - name: PGPASSWORD
+              value: "e2e"
+            - name: PGDATABASE
+              value: "app"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: kzero-e2e
+  labels:
+    app.kubernetes.io/name: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:7-alpine
+          args: ["redis-server", "--save", "", "--appendonly", "no"]
+          ports:
+            - containerPort: 6379
+          readinessProbe:
+            exec:
+              command: ["redis-cli", "ping"]
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbit
+  namespace: kzero-e2e
+  labels:
+    app.kubernetes.io/name: rabbitmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbit
+  template:
+    metadata:
+      labels:
+        app: rabbit
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3.13-alpine
+          ports:
+            - containerPort: 5672
+            - containerPort: 15672
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              value: "e2e"
+            - name: RABBITMQ_DEFAULT_PASS
+              value: "e2e"
+          readinessProbe:
+            tcpSocket:
+              port: 5672
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+          resources:
+            requests:
+              cpu: 50m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: kzero-e2e
+  labels:
+    app.kubernetes.io/name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "app"
+            - name: POSTGRES_PASSWORD
+              value: "e2e"
+            - name: POSTGRES_DB
+              value: "app"
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "app", "-d", "app"]
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: data
+          emptyDir: {}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cache
+  namespace: kzero-e2e
+  labels:
+    app.kubernetes.io/name: cache
+spec:
+  serviceName: cache
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cache
+  template:
+    metadata:
+      labels:
+        app: cache
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: data
+              mountPath: /usr/share/nginx/html
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: obs
+  namespace: kzero-e2e
+  labels:
+    app.kubernetes.io/name: obs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: obs
+  template:
+    metadata:
+      labels:
+        app: obs
+    spec:
+      containers:
+        - name: pause
+          image: registry.k8s.io/pause:3.9
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              cpu: 50m
+              memory: 32Mi

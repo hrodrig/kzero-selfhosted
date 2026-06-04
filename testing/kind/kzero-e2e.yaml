@@ -1,0 +1,83 @@
+# kzero config for kind e2e — matches workloads in kzero-e2e-workloads.yaml.
+# Typical stack: web, Redis, RabbitMQ, Postgres, StatefulSet cache, Deployment obs (scalable; not a DaemonSet).
+schema_version: "1.0"
+
+cluster:
+  name: "kind-e2e"
+  environment: "e2e"
+  description: "kzero-selfhosted kind smoke"
+
+helm:
+  workspace: ""
+
+client:
+  id: "kzero-kind-e2e"
+
+command:
+  kubectl: "kubectl"
+  helm: "helm"
+
+hooks:
+  pre-down: ""
+  post-down: ""
+  pre-up: ""
+  post-up: ""
+  on-error: ""
+
+notify:
+  slack:
+    enabled: false
+    webhook_url: ""
+  discord:
+    enabled: false
+    webhook_url: ""
+
+pipelines:
+  down:
+    - deployment.kzero-e2e/web
+    - deployment.kzero-e2e/counter
+    - deployment.kzero-e2e/rabbit
+    - deployment.kzero-e2e/redis
+    - statefulset.kzero-e2e/cache
+    - deployment.kzero-e2e/postgres:
+        pre: ./testing/kind/scripts/pg-wipe-e2e.sh
+    - deployment.kzero-e2e/obs
+  up:
+    - deployment.kzero-e2e/obs:
+        replicas: 1
+        wait_for_ready: true
+        timeout: 2m
+    - deployment.kzero-e2e/postgres:
+        replicas: 1
+        wait_for_ready: true
+        timeout: 5m
+    - statefulset.kzero-e2e/cache:
+        replicas: 1
+        wait_for_ready: true
+        timeout: 5m
+    - deployment.kzero-e2e/redis:
+        replicas: 1
+        wait_for_ready: true
+        timeout: 3m
+    - deployment.kzero-e2e/rabbit:
+        replicas: 1
+        wait_for_ready: true
+        timeout: 5m
+    - deployment.kzero-e2e/counter:
+        replicas: 1
+        wait_for_ready: true
+        timeout: 3m
+    - deployment.kzero-e2e/web:
+        replicas: 2
+        wait_for_ready: true
+        timeout: 3m
+
+retry:
+  attempts: 2
+  delay: 5s
+
+run:
+  mode: "live"
+  timeout: 25m
+  worker_concurrency: 2
+  operation_timeout: 3m
