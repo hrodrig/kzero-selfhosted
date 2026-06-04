@@ -187,7 +187,7 @@ if ! "$KZERO_BIN" analyze --config "$CFG_LIVE" >"$analyze_out"; then
   dump_diagnostics
   exit 1
 fi
-for needle in '[down]' '[up]' 'Run execution:' 'Run color:' 'Cluster validation:' 'OK  deployment.kzero-e2e/web' 'deployment.kzero-e2e/postgres'; do
+for needle in '[down]' '[up]' 'Run execution:' 'Run color:' 'Retry:' 'Cluster validation:' 'OK  deployment.kzero-e2e/web' 'deployment.kzero-e2e/postgres'; do
   if ! grep -q "$needle" "$analyze_out"; then
     echo "error: kzero analyze output missing expected line containing: $needle"
     cat "$analyze_out"
@@ -208,7 +208,7 @@ if ! "$KZERO_BIN" down --config "$CFG_DRY" 2>&1 | tee "$dry_down_out"; then
   exit 1
 fi
 if ! grep -q 'server-side dry-run ok' "$dry_down_out"; then
-  echo "error: dry-run down missing server-side dry-run confirmation (need kzero v0.5.1+ and run.execution: native)"
+  echo "error: dry-run down missing server-side dry-run confirmation (need kzero v0.5.3+ and run.execution: native)"
   cat "$dry_down_out"
   rm -f "$dry_down_out"
   dump_diagnostics

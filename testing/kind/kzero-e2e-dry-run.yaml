@@ -80,5 +80,4 @@ run:
   mode: "dry-run"
   execution: "native"
   timeout: 25m
-  worker_concurrency: 2
   operation_timeout: 3m
