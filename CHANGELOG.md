@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-06-04
+
+### Changed
+
+- **Upstream pin:** docs, Docker examples, and kind e2e target **kzero** [v0.4.0](https://github.com/hrodrig/kzero/releases/tag/v0.4.0) (`run.execution`, native workload executor).
+- **kind e2e:** live config sets **`run.execution: native`**; **`kzero analyze`** smoke expects **`Run execution:`** on stdout.
+- **Docs:** **`run/docker/README.md`** and example README describe **`Run execution:`** in **`analyze`** output.
+
 ## [0.1.1] - 2026-06-04
 
 ### Added
@@ -39,6 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Docker Compose**, **`run/common/`**, Helm chart / **`run/kubernetes/`**, and Compose CI workflow — **kzero** is intended to run on hosts with real **`kubectl`**, not as a bundled Compose or in-cluster chart story.
 
-[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/hrodrig/kzero-selfhosted/releases/tag/v0.1.0

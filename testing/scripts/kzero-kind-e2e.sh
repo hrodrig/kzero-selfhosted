@@ -187,7 +187,7 @@ if ! "$KZERO_BIN" analyze --config "$CFG_LIVE" >"$analyze_out"; then
   dump_diagnostics
   exit 1
 fi
-for needle in '[down]' '[up]' 'deployment.kzero-e2e/web' 'deployment.kzero-e2e/postgres'; do
+for needle in '[down]' '[up]' 'Run execution:' 'deployment.kzero-e2e/web' 'deployment.kzero-e2e/postgres'; do
   if ! grep -q "$needle" "$analyze_out"; then
     echo "error: kzero analyze output missing expected line containing: $needle"
     cat "$analyze_out"
