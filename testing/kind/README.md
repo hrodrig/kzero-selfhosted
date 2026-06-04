@@ -9,7 +9,7 @@ This suite spins up a **kind** cluster, applies **synthetic workloads** in names
 When **`KZERO_KIND_E2E_KZERO=1`** (default for **`make test-kind-e2e`**), **`testing/scripts/kzero-kind-e2e.sh`** runs:
 
 1. **Initialize:** kind cluster, **Docker** build of **`kzero-e2e-counter:e2e`**, **`kind load`**, apply manifests, wait for rollouts. Assert the **UI** (**`GET /`**, parse **`data-e2e-count`**) is **0**, then three **`POST /increment`** form submits (same as clicking **Increment**; **`curl -L`** follows the **303** to **`/`**). Assert counts **1 → 2 → 3**. (Browser: **`kubectl port-forward -n kzero-e2e svc/counter 8080:8080`** → **http://127.0.0.1:8080/**.)
-2. **kzero reset:** **`kzero analyze`** (normalized **`[down]`** / **`[up]`** plan on stdout, **`Run execution:`** line; **stderr** may show **Deferred** warnings for `retry` / `worker_concurrency`), **`kzero down`** (dry-run config then live), **`kzero up`**. Live config uses **`run.execution: native`** (client-go scale/wait). Postgres **pre-down** hook truncates **`public.e2e_scratch`** before scale-to-zero.
+2. **kzero reset:** **`kzero analyze`** (plan, **`Run execution:`**, **Cluster validation** with **OK** for lab workloads; **stderr** may show **Deferred** warnings), **`kzero down`** (dry-run then live), **`kzero up`**. Live config uses **`run.execution: native`**. Postgres **pre-down** hook truncates **`public.e2e_scratch`** before scale-to-zero.
 3. **Validate:** after rollouts, **`GET /`** again; **`data-e2e-count`** must be **0**.
 4. **Teardown:** on script exit, **`kind delete cluster`** (unless **`KZERO_KIND_NO_CLEANUP`** is set).
 
@@ -28,7 +28,7 @@ make test-kind-e2e         # full kzero exercise (needs kzero on PATH or KZERO_B
 ## Prerequisites
 
 - **Docker**, **kind**, **kubectl** on `PATH`
-- **`kzero`** **v0.4.0+** installed for **`make test-kind-e2e`** ([releases](https://github.com/hrodrig/kzero/releases/tag/v0.4.0)) or set **`KZERO_BIN`** to the binary path
+- **`kzero`** **v0.4.1+** installed for **`make test-kind-e2e`** ([releases](https://github.com/hrodrig/kzero/releases/tag/v0.4.1)) or set **`KZERO_BIN`** to the binary path
 
 ## Environment (optional)
 

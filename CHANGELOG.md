@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-06-04
+
+### Changed
+
+- **Upstream pin:** **kzero** [v0.4.1](https://github.com/hrodrig/kzero/releases/tag/v0.4.1) (`analyze` **Cluster validation**, `run.execution` native path).
+- **kind e2e:** **`kzero analyze`** smoke expects **Cluster validation** and **OK** for `deployment.kzero-e2e/web`.
+- **Docs / Docker:** `ghcr.io/hrodrig/kzero:v0.4.1` in examples.
+
 ## [0.1.2] - 2026-06-04
 
 ### Changed
@@ -47,7 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Docker Compose**, **`run/common/`**, Helm chart / **`run/kubernetes/`**, and Compose CI workflow — **kzero** is intended to run on hosts with real **`kubectl`**, not as a bundled Compose or in-cluster chart story.
 
-[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/hrodrig/kzero-selfhosted/releases/tag/v0.1.0

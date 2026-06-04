@@ -2,7 +2,7 @@
 
 ![kzero-selfhosted — operator docs and examples for the kzero CLI](assets/kzero-selfhosted-hero.png)
 
-[![Version](https://img.shields.io/badge/version-0.1.2-blue)](https://github.com/hrodrig/kzero-selfhosted/releases)
+[![Version](https://img.shields.io/badge/version-0.1.3-blue)](https://github.com/hrodrig/kzero-selfhosted/releases)
 [![Release](https://img.shields.io/github/v/release/hrodrig/kzero-selfhosted?label=release)](https://github.com/hrodrig/kzero-selfhosted/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![App image on GHCR](https://img.shields.io/badge/image-ghcr.io%2Fhrodrig%2Fkzero-2496ED?logo=github)](https://github.com/hrodrig/kzero/pkgs/container/kzero)
@@ -11,7 +11,7 @@
 
 Operator-focused **extras** for **[kzero](https://github.com/hrodrig/kzero)** ([latest release](https://github.com/hrodrig/kzero/releases/latest)): how to run the CLI on a **bastion or automation host**, **`docker run`** notes, a **sample YAML**, and a **kind** smoke test. The **application** (Go CLI, tests, **`ghcr.io/hrodrig/kzero`**) lives in the **kzero** repo; **this** repo is documentation and examples only.
 
-**Tested with kzero [v0.4.0+](https://github.com/hrodrig/kzero/releases/tag/v0.4.0)** — including **`run.execution`** (shell / native / auto) and richer **`kzero analyze`** output (`[down]` / `[up]` plans, **`Run execution:`**, **Deferred** summary). See **[CHANGELOG.md](CHANGELOG.md)** for **kzero-selfhosted** release notes and the **[kzero CHANGELOG](https://github.com/hrodrig/kzero/blob/main/CHANGELOG.md)** for the CLI.
+**Tested with kzero [v0.4.1+](https://github.com/hrodrig/kzero/releases/tag/v0.4.1)** — including **`run.execution`** (shell / native / auto), **`kzero analyze`** plan output (`[down]` / `[up]`, **`Run execution:`**, **Deferred**), and optional **Cluster validation** when kubeconfig loads. See **[CHANGELOG.md](CHANGELOG.md)** for **kzero-selfhosted** release notes and the **[kzero CHANGELOG](https://github.com/hrodrig/kzero/blob/main/CHANGELOG.md)** for the CLI.
 
 **Releases here:** root **`VERSION`** and Git tags **`v<semver>`** on **`main`** name snapshots of **this** repository. Work in progress may land on **`develop`** first.
 
@@ -65,7 +65,7 @@ Contract and schema: **[kzero SPECIFICATIONS](https://github.com/hrodrig/kzero/b
 |------|------------|
 | **Install kzero** (binaries, packages, GHCR) | [kzero README — Install or update](https://github.com/hrodrig/kzero/blob/main/README.md#install-or-update) |
 | **Production** `live` **down** / **up** / **reset** | Bastion or job runner: **kzero**, **kubeconfig**, **`kubectl`** and/or **`helm`** as your YAML requires; set **`run.execution`** (`shell`, `native`, or `auto`) — [kzero — First run](https://github.com/hrodrig/kzero/blob/main/README.md#first-run) |
-| **`docker run`** ( **`analyze`** / **`version`** ) | [run/docker/README.md](run/docker/README.md) — examples use **`ghcr.io/hrodrig/kzero:v0.4.0`** |
+| **`docker run`** ( **`analyze`** / **`version`** ) | [run/docker/README.md](run/docker/README.md) — examples use **`ghcr.io/hrodrig/kzero:v0.4.1`** |
 | **Copy-paste sample config** | [run/examples/kzero.sample.yml](run/examples/kzero.sample.yml) |
 | **Smoke test on a disposable cluster** | [testing/kind/README.md](testing/kind/README.md) — **`make test-kind-e2e`** |
 
@@ -73,7 +73,7 @@ Contract and schema: **[kzero SPECIFICATIONS](https://github.com/hrodrig/kzero/b
 
 ## Local e2e (kind)
 
-From the **repository root**, with **Docker**, **kind**, **kubectl**, and **kzero** [v0.4.0+](https://github.com/hrodrig/kzero/releases/tag/v0.4.0) on **`PATH`** (or **`KZERO_BIN`**):
+From the **repository root**, with **Docker**, **kind**, **kubectl**, and **kzero** [v0.4.1+](https://github.com/hrodrig/kzero/releases/tag/v0.4.1) on **`PATH`** (or **`KZERO_BIN`**):
 
 ```bash
 make test-kind-e2e

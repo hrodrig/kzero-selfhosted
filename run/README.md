@@ -9,7 +9,7 @@ This tree holds optional **operator-facing** material:
 - **[`docker/`](docker/README.md)** — **`docker run`** for **`analyze`** / **`version`** on the distroless image (**not** a full **`live`** runtime).
 - **[`examples/`](examples/README.md)** — minimal **`kzero.sample.yml`** for copy-paste.
 
-**Production pattern:** install **`kzero`** from **[kzero releases](https://github.com/hrodrig/kzero/releases)** ( **[v0.4.0+](https://github.com/hrodrig/kzero/releases/tag/v0.4.0)** for **`run.execution`** ), add **`kubectl`** / **`helm`** when your config requires them, keep **`kubeconfig`** on that host, and schedule **`kzero`** with **cron** or **systemd** outside the data plane cluster. See **[`run/docker/README.md`](docker/README.md#kzero-is-not-self-contained)**.
+**Production pattern:** install **`kzero`** from **[kzero releases](https://github.com/hrodrig/kzero/releases)** ( **[v0.4.1+](https://github.com/hrodrig/kzero/releases/tag/v0.4.1)** for **`run.execution`** ), add **`kubectl`** / **`helm`** when your config requires them, keep **`kubeconfig`** on that host, and schedule **`kzero`** with **cron** or **systemd** outside the data plane cluster. See **[`run/docker/README.md`](docker/README.md#kzero-is-not-self-contained)**.
 
 **Upstream:** application source and **`ghcr.io/hrodrig/kzero`** images are built from **[hrodrig/kzero](https://github.com/hrodrig/kzero)**. This repo (**kzero-selfhosted**) holds **docs and examples** only. For a **kind** smoke that runs **kzero** with **`run.execution: native`**, see **[`../testing/kind/`](../testing/kind/README.md)**.
 
