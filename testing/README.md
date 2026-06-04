@@ -5,6 +5,6 @@
 | **[`kind/`](kind/README.md)** | **kind** cluster + sample workloads (**Postgres**, **Redis**, **RabbitMQ**, lab **counter** + nginx **web**, nginx **StatefulSet**, **obs** **Deployment**) + **kzero** live **down**/**up** smoke |
 | **`scripts/`** | Bash drivers (e.g. **`kzero-kind-e2e.sh`**) |
 
-**Upstream:** application unit tests and **`make release-check`** live in **[hrodrig/kzero](https://github.com/hrodrig/kzero)** (use **v0.4.1+** for **`analyze`** plan output and **`run.execution`**). This tree only validates **kzero against a disposable kind cluster** using manifests committed here.
+**Upstream:** application unit tests and **`make release-check`** live in **[hrodrig/kzero](https://github.com/hrodrig/kzero)** (use **v0.5.1+** for **`run.color`**, server-side dry-run, and **`run.execution`**). This tree only validates **kzero against a disposable kind cluster** using manifests committed here.
 
 ← [Back to repository README](../../README.md)
