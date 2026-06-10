@@ -1,5 +1,15 @@
-# Example configs
+# Example configs and operator assets
 
-- **`kzero.sample.yml`** — minimal **dry-run** pipeline for copy-paste; align with **[kzero SPECIFICATIONS](https://github.com/hrodrig/kzero/blob/main/docs/SPECIFICATIONS.md)**. **`kzero analyze`** (v0.5.3+) lists **`[down]`** / **`[up]`** steps, **`Run execution:`**, **`Run color:`**, **`Retry:`** (when **`retry`** is set), optional **Cluster validation** (when kubeconfig loads), and **Deferred** fields on stdout. With **`run.mode: dry-run`** and **`run.execution: native`**, scale steps use **server-side dry-run**. **`live`** runs need **`kubectl`** / **`helm`** on the host when **`run.execution`** is **`shell`** or **`auto`** (fallback); **`native`** uses client-go only for workload steps — see **[`run/docker/README.md`](../docker/README.md)**.
+| Path | Purpose |
+|------|---------|
+| **`kzero.sample.yml`** | Minimal **dry-run** profile for copy-paste |
+| **`hooks/`** | Reference **`pre`** / **`post`** shell scripts |
+| **`infra-probe/`** | Anonymous Redis probe chart script, values, sample YAML fragment |
+
+**Full annotated profile** (packaged in **`.deb`** / release tarballs): **[kzero `configs/kzero.sample.yml`](https://github.com/hrodrig/kzero/blob/main/configs/kzero.sample.yml)**.
+
+**Schema and feature cookbooks** (notify, probe, verify): **[kzero SPECIFICATIONS](https://github.com/hrodrig/kzero/blob/main/docs/SPECIFICATIONS.md)** and **[docs/examples/](https://github.com/hrodrig/kzero/tree/main/docs/examples)**.
+
+Examples assume **kzero** [v0.6.1+](https://github.com/hrodrig/kzero/releases/tag/v0.6.1) on the host. For **`docker run`**, see **[`run/docker/README.md`](../docker/README.md)**.
 
 ← [Back to run/README](../README.md)

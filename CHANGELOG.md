@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.6] - 2026-06-10
+
+### Added
+
+- **`run/docs/automation-and-pipelines.md`** — CI/cron, **`KZERO_RUN_MODE`**, YES-gated wrappers (from upstream kzero).
+- **`run/examples/hooks/`** — reference **`pre`** / **`post`** shell scripts.
+- **`run/examples/infra-probe/`** — anonymous Redis probe chart script, values, sample YAML fragment.
+- **`run/standalone/README.md`** — bastion cron and systemd one-shot patterns.
+
+### Changed
+
+- **`run/README.md`** — operator hub (standalone, docker, examples, docs, kind e2e); pin **kzero** [v0.6.1+](https://github.com/hrodrig/kzero/releases/tag/v0.6.1).
+- **`run/examples/README.md`**, **`run/docker/README.md`** — **`ghcr.io/hrodrig/kzero:v0.6.1`** in examples.
+- **Upstream pin:** **kzero** [v0.6.1](https://github.com/hrodrig/kzero/releases/tag/v0.6.1) (man page, Homebrew, notify, verify, probe, preflight).
+
 ## [0.1.5] - 2026-06-04
 
 ### Changed
@@ -71,7 +86,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Docker Compose**, **`run/common/`**, Helm chart / **`run/kubernetes/`**, and Compose CI workflow — **kzero** is intended to run on hosts with real **`kubectl`**, not as a bundled Compose or in-cluster chart story.
 
-[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.5...HEAD
+[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.6...HEAD
+[0.1.6]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.2...v0.1.3
