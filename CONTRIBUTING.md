@@ -7,8 +7,15 @@
 
 ## Checks
 
-- **This repo:** optional **`make test-kind-workloads`** (kind + manifests only) or **`make test-kind-e2e`** (includes **kzero** — see **`testing/kind/README.md`**).
+- **This repo:** **`make release-check`** (VERSION, README badge, CHANGELOG section) — same gate as [CI](.github/workflows/ci.yml). Optional **`make test-kind-workloads`** (kind + manifests only) or **`make test-kind-e2e`** (includes **kzero** — see **`testing/kind/README.md`**).
 - **kzero application:** clone **[hrodrig/kzero](https://github.com/hrodrig/kzero)** and run **`make release-check`** there.
+
+## Releases
+
+1. Work on **`develop`**; merge to **`main`** when ready.
+2. Bump **`VERSION`**, **`CHANGELOG.md`**, and the README **Version** badge together.
+3. On **`main`**: **`git tag -a v0.1.7 -m "Release 0.1.7"`** and **`git push origin v0.1.7`**. [**Release**](.github/workflows/release.yml) creates the GitHub Release from the matching **`CHANGELOG`** section.
+4. To refresh notes for an existing tag (e.g. after a manual fix): **Actions → Release → Run workflow** with the tag name.
 
 ## Pull requests
 

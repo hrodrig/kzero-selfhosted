@@ -7,7 +7,6 @@
 !VERSION
 !LICENSE
 !README.md
-!AGENTS.md
 !CONTRIBUTING.md
 !SECURITY.md
 !CODE_OF_CONDUCT.md
@@ -38,5 +37,6 @@
 # Generated noise
 .DS_Store
 
-# Local-only — Cursor rules and IDE metadata (not committed; keep on this machine).
+# Local-only — Cursor rules, AGENTS.md, and IDE metadata (not committed; keep on this machine).
 .cursor/
+AGENTS.md

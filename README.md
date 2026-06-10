@@ -2,7 +2,7 @@
 
 ![kzero-selfhosted — operator docs and examples for the kzero CLI](assets/kzero-selfhosted-hero.png)
 
-[![Version](https://img.shields.io/badge/version-0.1.6-blue)](https://github.com/hrodrig/kzero-selfhosted/releases)
+[![Version](https://img.shields.io/badge/version-0.1.7-blue)](https://github.com/hrodrig/kzero-selfhosted/releases)
 [![Release](https://img.shields.io/github/v/release/hrodrig/kzero-selfhosted?label=release)](https://github.com/hrodrig/kzero-selfhosted/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![App image on GHCR](https://img.shields.io/badge/image-ghcr.io%2Fhrodrig%2Fkzero-2496ED?logo=github)](https://github.com/hrodrig/kzero/pkgs/container/kzero)
@@ -13,7 +13,7 @@ Operator-focused **extras** for **[kzero](https://github.com/hrodrig/kzero)** ([
 
 **Tested with kzero [v0.6.1+](https://github.com/hrodrig/kzero/releases/tag/v0.6.1)** — including **`run.execution`** (shell / native / auto), **`run.color`**, **per-step retry**, strictly **sequential** pipelines, **`kzero analyze`** plan output, **Cluster validation**, **server-side dry-run**, **notify** / **verify** / **infra_probe** / **preflight**, man page and **Homebrew** install. See **[CHANGELOG.md](CHANGELOG.md)** and the **[kzero CHANGELOG](https://github.com/hrodrig/kzero/blob/main/CHANGELOG.md)**.
 
-**Releases here:** root **`VERSION`** and Git tags **`v<semver>`** on **`main`** name snapshots of **this** repository. Work in progress may land on **`develop`** first.
+**Releases here:** root **`VERSION`** and Git tags **`v<semver>`** on **`main`** name snapshots of **this** repository. Pushing a tag runs [**.github/workflows/release.yml**](.github/workflows/release.yml) to create the GitHub Release from **`CHANGELOG.md`**. Work in progress lands on **`develop`** first.
 
 ---
 
@@ -106,8 +106,7 @@ Details, env vars, and manifest list: **[testing/kind/README.md](testing/kind/RE
 | **`testing/kind/`** | kind cluster manifests, e2e configs, lab **counter** Dockerfile |
 | **`testing/scripts/`** | **`kzero-kind-e2e.sh`** driver |
 | **`assets/`** | README hero image |
-| **`Makefile`** | **`make help`**, **`make test-kind-e2e`**, **`make test-kind-workloads`** |
-| **`AGENTS.md`** | Scope and conventions for agents / contributors |
+| **`Makefile`** | **`make help`**, **`make release-check`**, **`make test-kind-e2e`**, **`make test-kind-workloads`** |
 | **`CHANGELOG.md`** | **kzero-selfhosted** release history |
 
 Application tests and **`make release-check`**: clone **[hrodrig/kzero](https://github.com/hrodrig/kzero)**.
@@ -116,8 +115,7 @@ Application tests and **`make release-check`**: clone **[hrodrig/kzero](https://
 
 ## Policies
 
-- **[AGENTS.md](AGENTS.md)** — scope, versioning, upstream pin.
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** — PR expectations.
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — scope, PR expectations, and release flow.
 - **[SECURITY.md](SECURITY.md)** — reporting vulnerabilities.
 - **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** — community standards.
 

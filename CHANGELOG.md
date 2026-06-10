@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.7] - 2026-06-10
+
+### Added
+
+- **GitHub Actions:** [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs **`make release-check`** on **`develop`** / **`main`** PRs.
+- **GitHub Actions:** [`.github/workflows/release.yml`](.github/workflows/release.yml) publishes a **GitHub Release** from **`CHANGELOG.md`** on **`v*`** tag push (or **`workflow_dispatch`** to refresh an existing tag).
+- **`testing/scripts/release-check.sh`** and **`extract-changelog.sh`** — VERSION / README badge / CHANGELOG gate and release notes extraction.
+
+### Changed
+
+- **`AGENTS.md`** is **local-only** (removed from Git; same as **kzero**). Use **CONTRIBUTING.md** for published scope and release flow.
+
 ## [0.1.6] - 2026-06-10
 
 ### Added
@@ -86,7 +98,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Docker Compose**, **`run/common/`**, Helm chart / **`run/kubernetes/`**, and Compose CI workflow — **kzero** is intended to run on hosts with real **`kubectl`**, not as a bundled Compose or in-cluster chart story.
 
-[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.7...HEAD
+[0.1.7]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.3...v0.1.4
