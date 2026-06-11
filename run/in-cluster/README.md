@@ -9,7 +9,7 @@ Run **`kzero`** as a **Kubernetes Job** using the **distroless** **[GHCR image](
 | Requirement | Notes |
 |-------------|--------|
 | **kzero image** | **`ghcr.io/hrodrig/kzero:v0.7.1`** with **InClusterConfig** fallback when **`run.kubeconfig`** is empty ([kzero v0.7.1+](https://github.com/hrodrig/kzero/releases/tag/v0.7.1)). |
-| **Pipeline shape** | This smoke uses **`deployment` / `statefulset`** scale steps only — **no** **`release.*`**, phase hooks, or **`custom:`** (distroless has no shell). |
+| **Pipeline shape** | Smoke uses **`deployment` / `statefulset`** scale only. **Native infra probe** (Helm SDK + optional **`pvc`**) — see [run/examples/infra-probe/](../examples/infra-probe/README.md). |
 | **RBAC** | The Job **ServiceAccount** must be allowed to **get/patch** workloads in **every namespace referenced in YAML**, not only the Job namespace. |
 
 ## Job namespace vs pipeline namespaces
@@ -103,7 +103,7 @@ Details: [`testing/kind/in-cluster/README.md`](../../testing/kind/in-cluster/REA
 |---------|------|
 | **ClusterRole** (this smoke) | Lab, kind, short-lived pilots with many namespaces. |
 | **Role per namespace** | Production: one **Role** + **RoleBinding** per namespace listed in **`pipelines.*`**. |
-| **Helm / PVC / exec** | Not covered here — add rules when you adopt **`release.*`** (Helm SDK) or **`pvc` / `exec`** steps (see [kzero ROADMAP](https://github.com/hrodrig/kzero/blob/main/docs/ROADMAP.md)). |
+| **Helm / PVC / exec** | **`manifests/02-rbac.yaml`** includes rules for native **`release.*`** (Helm SDK), **`pvc`**, and **`exec`** in lab clusters — tighten to Role-per-namespace in production. |
 
 ## Wiring your own pipeline
 

@@ -29,6 +29,13 @@ rules:
   - apiGroups: ["apps"]
     resources: ["deployments", "statefulsets"]
     verbs: ["get", "list", "watch", "patch", "update"]
+  # Native probe / Helm SDK / pvc / exec (release.*, infra_probe checks in probe-ns).
+  - apiGroups: [""]
+    resources: ["pods", "persistentvolumeclaims", "secrets", "configmaps", "services"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["create"]
   - nonResourceURLs: ["/version", "/healthz", "/livez", "/readyz"]
     verbs: ["get"]
 ---

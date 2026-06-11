@@ -1,0 +1,10 @@
+# Helm SDK chart manifest for infra_probe release.probe-ns/probe-redis (native path).
+# Place in <helm.workspace>/probe-redis.yaml next to kzero-probe-redis-values.yaml.
+
+chart: oci://registry-1.docker.io/bitnamicharts/redis
+version: "25.5.2"
+values_files:
+  - kzero-probe-redis-values.yaml
+create_namespace: true
+wait: true
+timeout: 10m
