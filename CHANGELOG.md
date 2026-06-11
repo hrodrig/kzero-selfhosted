@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **In-cluster Jobs:** pin **`ghcr.io/hrodrig/kzero:v0.7.1`** in manifests and kind smoke defaults.
+
 ### Added
 
 - **`run/in-cluster/`** — reference **Job**, **ServiceAccount**, **ClusterRole**, **ConfigMap**, and two-namespace scale smoke (**`kzero-smoke.sample.yml`**, **`manifests/`**). Documents that pipeline namespaces differ from the Job namespace.

@@ -8,7 +8,7 @@ Run **`kzero`** as a **Kubernetes Job** using the **distroless** **[GHCR image](
 
 | Requirement | Notes |
 |-------------|--------|
-| **kzero image** | **`ghcr.io/hrodrig/kzero:v0.7.0+`** with **InClusterConfig** fallback when **`run.kubeconfig`** is empty (see [kzero](https://github.com/hrodrig/kzero) **develop** / release notes). |
+| **kzero image** | **`ghcr.io/hrodrig/kzero:v0.7.1`** with **InClusterConfig** fallback when **`run.kubeconfig`** is empty ([kzero v0.7.1+](https://github.com/hrodrig/kzero/releases/tag/v0.7.1)). |
 | **Pipeline shape** | This smoke uses **`deployment` / `statefulset`** scale steps only — **no** **`release.*`**, phase hooks, or **`custom:`** (distroless has no shell). |
 | **RBAC** | The Job **ServiceAccount** must be allowed to **get/patch** workloads in **every namespace referenced in YAML**, not only the Job namespace. |
 
@@ -86,7 +86,7 @@ From the repository root (requires **Docker**, **kind**, **kubectl** — no host
 make test-kind-in-cluster
 ```
 
-Build from a local **[kzero](https://github.com/hrodrig/kzero)** clone when **InClusterConfig** is not yet on the published image:
+Build from a local **[kzero](https://github.com/hrodrig/kzero)** clone when testing unreleased changes:
 
 ```bash
 export KZERO_IN_CLUSTER_BUILD=1
