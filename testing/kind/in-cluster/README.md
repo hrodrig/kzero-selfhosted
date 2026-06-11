@@ -31,7 +31,7 @@ Runs **`kzero`** **inside** the cluster as **Kubernetes Jobs** (not from the hos
 | Variable | Default | Purpose |
 |----------|---------|---------|
 | **`KZERO_KIND_IN_CLUSTER_CLUSTER`** | **`kzero-in-cluster-smoke`** | kind cluster name |
-| **`KZERO_IN_CLUSTER_IMAGE`** | **`ghcr.io/hrodrig/kzero:v0.7.1`** | Job container image (must match loaded image) |
+| **`KZERO_IN_CLUSTER_IMAGE`** | **`ghcr.io/hrodrig/kzero:v0.7.2`** | Job container image (must match loaded image) |
 | **`KZERO_IN_CLUSTER_BUILD`** | unset | Set to **`1`** to **`docker build`** from **`KZERO_REPO`** instead of pull |
 | **`KZERO_REPO`** | **`../kzero`** if present | Path to **[hrodrig/kzero](https://github.com/hrodrig/kzero)** clone for local build |
 | **`KZERO_KIND_JOB_TIMEOUT`** | **`300s`** | **`kubectl wait`** for each Job |

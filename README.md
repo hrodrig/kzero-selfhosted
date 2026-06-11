@@ -2,7 +2,7 @@
 
 ![kzero-selfhosted — operator docs and examples for the kzero CLI](assets/kzero-selfhosted-hero.png)
 
-[![Version](https://img.shields.io/badge/version-0.1.7-blue)](https://github.com/hrodrig/kzero-selfhosted/releases)
+[![Version](https://img.shields.io/badge/version-0.1.8-blue)](https://github.com/hrodrig/kzero-selfhosted/releases)
 [![Release](https://img.shields.io/github/v/release/hrodrig/kzero-selfhosted?label=release)](https://github.com/hrodrig/kzero-selfhosted/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![App image on GHCR](https://img.shields.io/badge/image-ghcr.io%2Fhrodrig%2Fkzero-2496ED?logo=github)](https://github.com/hrodrig/kzero/pkgs/container/kzero)

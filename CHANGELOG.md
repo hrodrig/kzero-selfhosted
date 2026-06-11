@@ -7,14 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.8] - 2026-06-11
+
 ### Changed
 
-- **In-cluster Jobs:** pin **`ghcr.io/hrodrig/kzero:v0.7.1`** in manifests and kind smoke defaults.
+- **In-cluster Jobs:** pin **`ghcr.io/hrodrig/kzero:v0.7.2`** in manifests and kind smoke defaults (upstream **0.7.x** band close).
 
 ### Added
 
 - **`run/in-cluster/`** — reference **Job**, **ServiceAccount**, **ClusterRole**, **ConfigMap**, and two-namespace scale smoke (**`kzero-smoke.sample.yml`**, **`manifests/`**). Documents that pipeline namespaces differ from the Job namespace.
 - **`make test-kind-in-cluster`** — **`testing/scripts/kzero-in-cluster-kind-smoke.sh`**: kind cluster + in-cluster **`analyze` → `down` → `up`** Jobs (see **`testing/kind/in-cluster/README.md`**).
+- **Native infra probe** sample and RBAC updates (**PR6** alignment with [kzero v0.7.2](https://github.com/hrodrig/kzero/releases/tag/v0.7.2)).
 
 ## [0.1.7] - 2026-06-10
 
@@ -107,7 +110,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Docker Compose**, **`run/common/`**, Helm chart / **`run/kubernetes/`**, and Compose CI workflow — **kzero** is intended to run on hosts with real **`kubectl`**, not as a bundled Compose or in-cluster chart story.
 
-[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.7...HEAD
+[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.8...HEAD
+[0.1.8]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.7...v0.1.8
 [0.1.7]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.4...v0.1.5
