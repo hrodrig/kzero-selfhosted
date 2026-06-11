@@ -1,0 +1,49 @@
+# RBAC for in-cluster kzero Jobs.
+#
+# The ServiceAccount lives in kzero-system. Pipeline steps use per-ref namespaces
+# (deployment.kzero-smoke-a/app, deployment.kzero-smoke-b/app, etc.) — not the
+# Pod namespace. This example uses a ClusterRole for lab/smoke; production
+# clusters should prefer Roles + RoleBindings per target namespace (see README).
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kzero
+  namespace: kzero-system
+  labels:
+    app.kubernetes.io/name: kzero
+    app.kubernetes.io/component: in-cluster-runner
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kzero-workload-scale
+  labels:
+    app.kubernetes.io/name: kzero
+    app.kubernetes.io/component: in-cluster-runner
+rules:
+  # Preflight (Discovery().ServerVersion) and analyze cluster validation (Get).
+  - apiGroups: [""]
+    resources: ["namespaces"]
+    verbs: ["get", "list"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "statefulsets"]
+    verbs: ["get", "list", "watch", "patch", "update"]
+  - nonResourceURLs: ["/version", "/healthz", "/livez", "/readyz"]
+    verbs: ["get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kzero-workload-scale
+  labels:
+    app.kubernetes.io/name: kzero
+    app.kubernetes.io/component: in-cluster-runner
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kzero-workload-scale
+subjects:
+  - kind: ServiceAccount
+    name: kzero
+    namespace: kzero-system

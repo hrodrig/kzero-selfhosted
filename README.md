@@ -23,9 +23,10 @@ Operator-focused **extras** for **[kzero](https://github.com/hrodrig/kzero)** ([
 |-------------------------|----------------------------------------------------------|
 | Operator README, **`run/docker`**, **`run/examples`** | CLI source, **`make release-check`**, unit tests |
 | **kind** e2e manifests + **`make test-kind-e2e`** | **`ghcr.io/hrodrig/kzero`** distroless images |
+| **`run/in-cluster/`** Job + RBAC smoke manifests | In-cluster execution engine (**InClusterConfig**, Helm SDK) |
 | Lab counter image build for e2e only | Binaries, `.deb` / `.rpm`, GoReleaser releases |
 
-**Not shipped here:** Docker Compose, in-cluster Helm chart for **kzero**, or a bundled **`kubectl`** / **`helm`** runtime. **kzero** is **not** an in-cluster workload — run it where **`kubeconfig`** already works.
+**Not shipped here:** Docker Compose, a Helm chart that installs **kzero** as a long-running in-cluster controller, or bundled **`kubectl`** / **`helm`** in the runner image. **Host/bastion** runs remain the default; **`run/in-cluster/`** documents **Job**-based runs with **`run.execution: native`** (see that README for RBAC and multi-namespace notes).
 
 ---
 

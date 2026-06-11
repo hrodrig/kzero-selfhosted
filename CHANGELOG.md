@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **`run/in-cluster/`** — reference **Job**, **ServiceAccount**, **ClusterRole**, **ConfigMap**, and two-namespace scale smoke (**`kzero-smoke.sample.yml`**, **`manifests/`**). Documents that pipeline namespaces differ from the Job namespace.
+- **`make test-kind-in-cluster`** — **`testing/scripts/kzero-in-cluster-kind-smoke.sh`**: kind cluster + in-cluster **`analyze` → `down` → `up`** Jobs (see **`testing/kind/in-cluster/README.md`**).
+
 ## [0.1.7] - 2026-06-10
 
 ### Added

@@ -2,7 +2,7 @@
 
 ## Scope
 
-- **This repo:** Operator docs, **`run/docker/`**, **`run/examples/`**, and optional **kind** e2e under **`testing/`**. Documents that **kzero** depends on external **`kubectl`** / **`helm`** and is **not** a self-contained cluster runtime. **No** Docker Compose, Helm charts for in-cluster **kzero**, or Kubernetes manifests that run the CLI inside the cluster.
+- **This repo:** Operator docs, **`run/docker/`**, **`run/examples/`**, **`run/in-cluster/`** (reference Job + RBAC), and optional **kind** e2e under **`testing/`**. Documents that **kzero** depends on external **`kubectl`** / **`helm`** for shell paths and **`release.*`**; **`run/in-cluster/`** covers **native** scale Jobs only. **No** Docker Compose or Helm chart that installs **kzero** as a long-running in-cluster controller.
 - **[hrodrig/kzero](https://github.com/hrodrig/kzero):** Go application, **`make release-check`**, tests, and container images.
 
 ## Checks
@@ -22,6 +22,7 @@
 - Keep **English** in all committed text.
 - When **`run/examples/kzero.sample.yml`** changes, confirm it still matches **[docs/SPECIFICATIONS.md](https://github.com/hrodrig/kzero/blob/main/docs/SPECIFICATIONS.md)** in the **kzero** repo.
 - When **`testing/kind/`** manifests or **`kzero-e2e*.yaml`** change, run **`make test-kind-workloads`** (or **`make test-kind-e2e`** if you have **kzero** installed) before merging.
+- When **`run/in-cluster/`** changes, run **`make test-kind-in-cluster`** (optional **`KZERO_IN_CLUSTER_BUILD=1`** for unreleased **kzero**).
 
 ## Security
 

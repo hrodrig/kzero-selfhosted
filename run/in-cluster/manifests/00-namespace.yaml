@@ -1,0 +1,9 @@
+# Namespace where the kzero Job and ServiceAccount run.
+# Pipeline targets may live in other namespaces (see smoke-workloads.yaml).
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kzero-system
+  labels:
+    app.kubernetes.io/name: kzero
+    app.kubernetes.io/component: in-cluster-runner

@@ -1,0 +1,36 @@
+schema_version: "1.0"
+
+# Scale-only smoke for in-cluster Jobs. Workloads live in kzero-smoke-a and kzero-smoke-b;
+# the kzero Pod runs in kzero-system (see manifests/smoke-workloads.yaml).
+cluster:
+  name: "in-cluster-smoke"
+  environment: "smoke"
+  description: "Two-namespace native scale smoke (no release.*, no hooks)"
+
+client:
+  id: "kzero-in-cluster-smoke"
+
+pipelines:
+  down:
+    - deployment.kzero-smoke-a/app
+    - deployment.kzero-smoke-b/app
+  up:
+    - deployment.kzero-smoke-a/app:
+        replicas: 1
+        wait_for_ready: true
+        timeout: 3m
+    - deployment.kzero-smoke-b/app:
+        replicas: 1
+        wait_for_ready: true
+        timeout: 3m
+
+retry:
+  attempts: 2
+  delay: 5s
+
+run:
+  mode: "live"
+  execution: "native"
+  kubeconfig: ""
+  timeout: 15m
+  operation_timeout: 5m
