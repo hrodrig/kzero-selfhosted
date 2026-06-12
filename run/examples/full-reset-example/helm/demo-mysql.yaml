@@ -1,0 +1,8 @@
+# Helm SDK — release.kzero-demo/demo-mysql (Bitnami, public OCI)
+chart: oci://registry-1.docker.io/bitnamicharts/mysql
+version: "12.3.0"
+values_files:
+  - demo-mysql-values.yaml
+create_namespace: false
+wait: true
+timeout: 15m

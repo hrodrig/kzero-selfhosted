@@ -1,0 +1,25 @@
+# Demo PostgreSQL — truncate target for reset hook (demo_scratch table).
+# bitnamilegacy/* — Bitnami moved free images off docker.io/bitnami (pull returns HTML/404).
+global:
+  security:
+    allowInsecureImages: true
+image:
+  registry: docker.io
+  repository: bitnamilegacy/postgresql
+fullnameOverride: demo-postgresql
+auth:
+  postgresPassword: demo-pg-pass
+  database: demo
+  username: demo
+  password: demo-pg-pass
+primary:
+  persistence:
+    enabled: true
+    size: 2Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi

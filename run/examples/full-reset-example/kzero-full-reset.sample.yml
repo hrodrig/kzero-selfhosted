@@ -1,0 +1,91 @@
+# Full reset example — namespace kzero-demo on YOUR real cluster (not kind).
+#
+#   cp env.example .env && edit KUBECONFIG
+#   ./install-demo.sh              # bootstrap once (Helm + WordPress)
+#   ./run-kzero analyze
+#   ./run-kzero --live reset       # lab only — mutates kzero-demo only
+#
+# Requires kzero v0.7.3+, kubectl, helm, StorageClass for PVCs.
+# See README.md and run/docs/full-reset-validation.md.
+
+schema_version: "1.0"
+
+cluster:
+  name: "kzero-demo-cluster"
+  environment: "demo"
+  description: "YAML metadata only — target cluster comes from kubeconfig"
+
+helm:
+  workspace: "helm"
+
+client:
+  id: "kzero-demo-client"
+
+command:
+  kubectl: "kubectl"
+  helm: "helm"
+
+hooks:
+  pre-down: ""
+  post-down: ""
+  pre-up: ""
+  post-up: ""
+  on-error: ""
+
+notify:
+  slack:
+    enabled: false
+    webhook_url: ""
+  discord:
+    enabled: false
+    webhook_url: ""
+
+pipelines:
+  down:
+    - deployment.kzero-demo/wordpress
+    - custom: ./hooks/truncate-demo-postgres.sh
+    - release.kzero-demo/demo-mysql
+    - release.kzero-demo/demo-redis
+    - release.kzero-demo/demo-rabbitmq
+    - release.kzero-demo/demo-postgresql
+    - pvc.kzero-demo/data-demo-mysql-0
+    - pvc.kzero-demo/data-demo-postgresql-0
+    - pvc.kzero-demo/data-demo-rabbitmq-0
+    - pvc.kzero-demo/redis-data-demo-redis-master-0
+
+  up:
+    - release.kzero-demo/demo-postgresql
+    - release.kzero-demo/demo-rabbitmq
+    - release.kzero-demo/demo-redis
+    - release.kzero-demo/demo-mysql:
+        post: ./hooks/wait-helm-release-ready.sh
+    - deployment.kzero-demo/wordpress:
+        replicas: 1
+        wait_for_ready: true
+
+infra_probe:
+  enabled: true
+  before: ["reset"]
+  fail_fast: true
+  cache_ttl: 15m
+  pipeline:
+    up:
+      - release.kzero-demo/kzero-probe-redis
+    down:
+      - release.kzero-demo/kzero-probe-redis
+  checks:
+    - pvc_bound: kzero-demo/redis-data-kzero-probe-redis-master-0
+    - release_ready: true
+
+retry:
+  attempts: 1
+  delay: 5s
+
+run:
+  kubeconfig: ""
+  mode: "dry-run"
+  color: "always"
+  execution: "native"
+  probe_cache_dir: "./.probe-cache"
+  timeout: 45m
+  operation_timeout: 15m

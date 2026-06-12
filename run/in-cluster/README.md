@@ -8,7 +8,7 @@ Run **`kzero`** as a **Kubernetes Job** using the **distroless** **[GHCR image](
 
 | Requirement | Notes |
 |-------------|--------|
-| **kzero image** | **`ghcr.io/hrodrig/kzero:v0.7.2`** with **InClusterConfig** fallback when **`run.kubeconfig`** is empty ([kzero v0.7.2+](https://github.com/hrodrig/kzero/releases/tag/v0.7.2)). |
+| **kzero image** | **`ghcr.io/hrodrig/kzero:v0.7.3`** with **InClusterConfig** fallback when **`run.kubeconfig`** is empty ([kzero v0.7.3+](https://github.com/hrodrig/kzero/releases/tag/v0.7.3)). |
 | **Pipeline shape** | Smoke uses **`deployment` / `statefulset`** scale only. **Native infra probe** (Helm SDK + optional **`pvc`**) — see [run/examples/infra-probe/](../examples/infra-probe/README.md). |
 | **RBAC** | The Job **ServiceAccount** must be allowed to **get/patch** workloads in **every namespace referenced in YAML**, not only the Job namespace. |
 

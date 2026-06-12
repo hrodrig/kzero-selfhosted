@@ -30,6 +30,12 @@
 !run/
 !run/**
 
+# full-reset-example — local operator data (parent allowed by !run/** above)
+run/examples/full-reset-example/.env
+run/examples/full-reset-example/.probe-cache/
+run/examples/full-reset-example/.logs/*
+!run/examples/full-reset-example/.logs/.keep
+
 # Optional local data placeholder
 !data/
 !data/.keep

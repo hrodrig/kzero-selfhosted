@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.9] - 2026-06-12
+
+### Added
+
+- **`run/examples/full-reset-example/`** — **real-cluster** lab in namespace **`kzero-demo`**: WordPress + Bitnami MySQL/PostgreSQL/Redis/RabbitMQ (public OCI), **`install-demo.sh`** / **`uninstall-demo.sh`**, maintenance **`reset`** profile (**`truncate-demo-postgres`**, PVC wipe, **`infra_probe`**), **`run-kzero`** wrapper.
+- **`run/docs/full-reset-validation.md`** — validation runbook (steps 0–7, success criteria, troubleshooting).
+- **`run/docs/notifications-full-reset.md`** — Slack attachments, **`KZERO_NOTIFY_*`**, **`kzero notify test`**.
+- **`run/docs/transcripts/`** — anonymized CLI transcripts (analyze, down, up, probe, reset live, notify test).
+- **`run/docs/automation-and-pipelines.md`:** link to upstream [pipeline-network-loss](https://github.com/hrodrig/kzero/blob/develop/docs/examples/pipeline-network-loss.md) cookbook and **0.8.x** plan for production bastion resets.
+
+### Changed
+
+- **Upstream pin:** [kzero v0.7.3](https://github.com/hrodrig/kzero/releases/tag/v0.7.3) in in-cluster Job manifests and kind smoke defaults (timestamped logs, Slack notify polish, **`KZERO_NOTIFY_*`** env binding).
+
 ## [0.1.8] - 2026-06-11
 
 ### Changed
@@ -110,7 +124,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Docker Compose**, **`run/common/`**, Helm chart / **`run/kubernetes/`**, and Compose CI workflow — **kzero** is intended to run on hosts with real **`kubectl`**, not as a bundled Compose or in-cluster chart story.
 
-[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.8...HEAD
+[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.9...HEAD
+[0.1.9]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.8...v0.1.9
 [0.1.8]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.7...v0.1.8
 [0.1.7]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.5...v0.1.6

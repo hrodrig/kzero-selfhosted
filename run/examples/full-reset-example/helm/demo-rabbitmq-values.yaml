@@ -1,0 +1,20 @@
+global:
+  security:
+    allowInsecureImages: true
+image:
+  registry: docker.io
+  repository: bitnamilegacy/rabbitmq
+fullnameOverride: demo-rabbitmq
+auth:
+  username: demo
+  password: demo-rmq-pass
+persistence:
+  enabled: true
+  size: 2Gi
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi

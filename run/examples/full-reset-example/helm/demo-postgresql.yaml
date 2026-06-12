@@ -1,0 +1,8 @@
+# Helm SDK — release.kzero-demo/demo-postgresql (Bitnami, public OCI)
+chart: oci://registry-1.docker.io/bitnamicharts/postgresql
+version: "15.5.38"
+values_files:
+  - demo-postgresql-values.yaml
+create_namespace: false
+wait: false
+timeout: 15m

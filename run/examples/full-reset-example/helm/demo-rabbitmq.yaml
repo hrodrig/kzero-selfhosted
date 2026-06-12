@@ -1,0 +1,8 @@
+# Helm SDK — release.kzero-demo/demo-rabbitmq (Bitnami, public OCI)
+chart: oci://registry-1.docker.io/bitnamicharts/rabbitmq
+version: "14.7.0"
+values_files:
+  - demo-rabbitmq-values.yaml
+create_namespace: false
+wait: false
+timeout: 15m

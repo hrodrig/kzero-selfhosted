@@ -1,0 +1,8 @@
+# Helm SDK — release.kzero-demo/demo-redis (Bitnami, public OCI)
+chart: oci://registry-1.docker.io/bitnamicharts/redis
+version: "20.6.3"
+values_files:
+  - demo-redis-values.yaml
+create_namespace: false
+wait: true
+timeout: 10m
