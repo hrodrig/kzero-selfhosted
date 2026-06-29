@@ -92,7 +92,7 @@ printf 'YES\n' | ./run-operator --live reset
 
 If the wrapper tees to a log file (for example `.logs/kzero-down-<timestamp>.log`), keep that directory on the runner and archive logs as CI artifacts when useful.
 
-**Production live `reset` on a bastion:** treat the log file as **primary evidence** when API and notify paths fail at different times. See [kzero pipeline-network-loss cookbook](https://github.com/hrodrig/kzero/blob/develop/docs/examples/pipeline-network-loss.md) and [full-reset-example `run-kzero`](../examples/full-reset-example/run-kzero). **Planned engine improvements:** [plan-0.8.x](https://github.com/hrodrig/kzero/blob/develop/docs/plan-0.8.x.md) (API watchdog, notify delivery visibility).
+**Production live `reset` on a bastion:** treat the log file as **primary evidence** when API and notify paths fail at different times. Enable **`run.api_watchdog`** in YAML (see [kzero pipeline-network-loss cookbook](https://github.com/hrodrig/kzero/blob/main/docs/examples/pipeline-network-loss.md) and [full-reset-example `run-kzero`](../examples/full-reset-example/run-kzero)). **`pipeline.stalled`** and notify **`[ERR]`** on failed POSTs ship in **kzero v0.8.0+**.
 
 ## Suggested pipeline order
 
@@ -140,6 +140,6 @@ printf 'YES\n' | ./run-operator --live down
 ## Related
 
 - [kzero SPECIFICATIONS.md](https://github.com/hrodrig/kzero/blob/main/docs/SPECIFICATIONS.md) — config schema, `KZERO_*` overrides, run modes
-- [kzero pipeline-network-loss.md](https://github.com/hrodrig/kzero/blob/develop/docs/examples/pipeline-network-loss.md) — two-phase network outage during long live runs; mitigations until **v0.8.0**
+- [kzero pipeline-network-loss.md](https://github.com/hrodrig/kzero/blob/main/docs/examples/pipeline-network-loss.md) — two-phase network outage during long live runs; **`run.api_watchdog`** and supplemental mitigations (**v0.8.0+**)
 - [kzero pipeline-order-and-integrity.md](https://github.com/hrodrig/kzero/blob/main/docs/examples/pipeline-order-and-integrity.md) — ordering and per-step hooks on `down`
 - [run/standalone/README.md](../standalone/README.md) — cron and systemd one-shot patterns

@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.10] - 2026-06-29
+
+### Changed
+
+- **Upstream pin:** [kzero v0.8.1](https://github.com/hrodrig/kzero/releases/tag/v0.8.1) in in-cluster Job manifests, kind smoke defaults, and operator docs (was **v0.7.3**).
+- **`run/examples/full-reset-example/kzero-full-reset.sample.yml`:** add **`run.api_watchdog`** (recommended for live **`reset`** on remote API paths; ships in **kzero v0.8.0+**).
+- **Operator docs:** sync network-loss / automation cross-links for shipped **0.8.x** features (**API watchdog**, notify **`[ERR]`**, **`pipeline.stalled`**) — no longer “until **v0.8.0**”.
+- **`run/docker/README.md`:** example image tag **`v0.8.1`**.
+
 ## [0.1.9] - 2026-06-12
 
 ### Added
@@ -124,7 +133,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Docker Compose**, **`run/common/`**, Helm chart / **`run/kubernetes/`**, and Compose CI workflow — **kzero** is intended to run on hosts with real **`kubectl`**, not as a bundled Compose or in-cluster chart story.
 
-[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.9...HEAD
+[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.10...HEAD
+[0.1.10]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.9...v0.1.10
 [0.1.9]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.8...v0.1.9
 [0.1.8]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.7...v0.1.8
 [0.1.7]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.6...v0.1.7

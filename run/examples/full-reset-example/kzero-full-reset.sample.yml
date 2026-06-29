@@ -5,7 +5,7 @@
 #   ./run-kzero analyze
 #   ./run-kzero --live reset       # lab only — mutates kzero-demo only
 #
-# Requires kzero v0.7.3+, kubectl, helm, StorageClass for PVCs.
+# Requires kzero v0.8.0+ (v0.8.1 recommended), kubectl, helm, StorageClass for PVCs.
 # See README.md and run/docs/full-reset-validation.md.
 
 schema_version: "1.0"
@@ -89,3 +89,7 @@ run:
   probe_cache_dir: "./.probe-cache"
   timeout: 45m
   operation_timeout: 15m
+  api_watchdog:
+    enabled: true
+    interval: 60s
+    fail_after: 5m

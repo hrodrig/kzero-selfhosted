@@ -199,7 +199,7 @@ write_log_header() {
 
 verify_prerequisites() {
   if ! command -v "$KZERO_BIN" >/dev/null 2>&1; then
-    log_err "kzero not found (install v0.7.3+ from github.com/hrodrig/kzero)"
+    log_err "kzero not found (install v0.8.0+ from github.com/hrodrig/kzero)"
     exit 1
   fi
   if ! command -v kubectl >/dev/null 2>&1; then

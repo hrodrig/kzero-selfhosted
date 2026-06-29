@@ -2,7 +2,7 @@
 
 Self-contained **maintenance reset** demo on **your own Kubernetes cluster** (not kind): namespace **`kzero-demo`**, public images only, Bitnami Helm charts from **Docker Hub OCI**, WordPress + MySQL + PostgreSQL + Redis + RabbitMQ.
 
-**Requires [kzero v0.7.3+](https://github.com/hrodrig/kzero/releases/tag/v0.7.3)**, **`kubectl`**, **`helm`**, a **lab/staging kubeconfig**, and a **StorageClass** for PVCs. **Do not run against production.**
+**Requires [kzero v0.8.0+](https://github.com/hrodrig/kzero/releases/tag/v0.8.0)** (**v0.8.1** recommended), **`kubectl`**, **`helm`**, a **lab/staging kubeconfig**, and a **StorageClass** for PVCs. **Do not run against production.**
 
 ## Quick start
 
@@ -38,6 +38,8 @@ Remove everything: **`./uninstall-demo.sh`** (type **`DELETE`**).
 **Down (10 steps):** scale WordPress → 0 → truncate Postgres → Helm uninstall (mysql, redis, rabbitmq, postgresql) → delete 4 PVCs.
 
 **Up (5 steps):** Helm install infra (postgres → rabbit → redis → mysql) → scale WordPress → 1 with **`wait_for_ready`**.
+
+**Live runs:** profile enables **`run.api_watchdog`** (trips after **5m** cumulative API loss; dispatches **`pipeline.stalled`** when notify is configured). See [kzero pipeline-network-loss](https://github.com/hrodrig/kzero/blob/main/docs/examples/pipeline-network-loss.md).
 
 ## Layout
 
