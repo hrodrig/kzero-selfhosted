@@ -1,0 +1,8 @@
+# Helm SDK — release.platform/redis-cache
+chart: oci://registry-1.docker.io/bitnamicharts/redis
+version: "20.11.4"
+values_files:
+  - redis-cache-values.yaml
+create_namespace: false
+wait: true
+timeout: 10m

@@ -36,6 +36,11 @@ run/examples/full-reset-example/.probe-cache/
 run/examples/full-reset-example/.logs/*
 !run/examples/full-reset-example/.logs/.keep
 
+run/examples/platform-reset/.env
+run/examples/platform-reset/.probe-cache/
+run/examples/platform-reset/.logs/*
+!run/examples/platform-reset/.logs/.keep
+
 # Optional local data placeholder
 !data/
 !data/.keep

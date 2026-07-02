@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **`run/examples/platform-reset/`** — anonymized large maintenance profile (**`platform`** namespace): generic workloads, full **`helm/`** workspace (PostgreSQL, RabbitMQ, Redis, five jobstores, optional state-store/mongodb), hooks, **`run-kzero`** with cluster slug log names, anonymized live reset log fixture.
+- **`run/docs/transcripts/reset-live-transcript-platform.anonymized.md`** — summary of ~9m45s live reset (throttled progress lines, hook ordering).
+
 ## [0.1.10] - 2026-06-29
 
 ### Changed

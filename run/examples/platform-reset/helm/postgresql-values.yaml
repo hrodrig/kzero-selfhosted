@@ -1,0 +1,26 @@
+# Main platform PostgreSQL — truncate target for reset hook (platform.job_queue).
+global:
+  security:
+    allowInsecureImages: true
+image:
+  registry: docker.io
+  repository: bitnamilegacy/postgresql
+fullnameOverride: platform-postgresql
+auth:
+  postgresPassword: demo-pg-pass
+  database: platform
+  username: demo
+  password: demo-pg-pass
+primary:
+  persistence:
+    enabled: true
+    size: 8Gi
+    annotations:
+      "helm.sh/resource-policy": delete
+  resources:
+    requests:
+      cpu: 100m
+      memory: 512Mi
+    limits:
+      cpu: 2000m
+      memory: 4096Mi

@@ -1,0 +1,31 @@
+global:
+  security:
+    allowInsecureImages: true
+image:
+  registry: docker.io
+  repository: bitnamilegacy/redis
+fullnameOverride: redis-cache
+architecture: standalone
+auth:
+  enabled: true
+  password: demo-redis-pass
+commonConfiguration: |-
+  appendonly yes
+  save ""
+  maxmemory 512mb
+  maxmemory-policy allkeys-lru
+master:
+  persistence:
+    enabled: true
+    size: 4Gi
+    annotations:
+      "helm.sh/resource-policy": delete
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 1024Mi
+replica:
+  replicaCount: 0

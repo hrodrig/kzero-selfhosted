@@ -1,0 +1,8 @@
+# Helm SDK — release.platform/postgresql (Bitnami, public OCI)
+chart: oci://registry-1.docker.io/bitnamicharts/postgresql
+version: "15.5.38"
+values_files:
+  - postgresql-values.yaml
+create_namespace: false
+wait: false
+timeout: 10m

@@ -1,0 +1,23 @@
+global:
+  security:
+    allowInsecureImages: true
+image:
+  registry: docker.io
+  repository: bitnamilegacy/mongodb
+fullnameOverride: platform-mongodb
+auth:
+  enabled: true
+  rootPassword: demo-mongo-pass
+  username: demo
+  password: demo-mongo-pass
+  database: platform
+persistence:
+  enabled: true
+  size: 4Gi
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi

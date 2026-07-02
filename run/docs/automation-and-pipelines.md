@@ -90,7 +90,7 @@ printf 'YES\n' | ./run-operator --live reset
 
 ### Logging wrapper output
 
-If the wrapper tees to a log file (for example `.logs/kzero-down-<timestamp>.log`), keep that directory on the runner and archive logs as CI artifacts when useful.
+If the wrapper tees to a log file (for example `.logs/kzero-down-<cluster-slug>-<timestamp>.log`), keep that directory on the runner and archive logs as CI artifacts when useful. Resolve `<cluster-slug>` with `kzero target --output slug --config …`.
 
 **Production live `reset` on a bastion:** treat the log file as **primary evidence** when API and notify paths fail at different times. Enable **`run.api_watchdog`** in YAML (see [kzero pipeline-network-loss cookbook](https://github.com/hrodrig/kzero/blob/main/docs/examples/pipeline-network-loss.md) and [full-reset-example `run-kzero`](../examples/full-reset-example/run-kzero)). **`pipeline.stalled`** and notify **`[ERR]`** on failed POSTs ship in **kzero v0.8.0+**.
 

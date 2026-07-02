@@ -1,0 +1,25 @@
+global:
+  security:
+    allowInsecureImages: true
+image:
+  registry: docker.io
+  repository: bitnamilegacy/postgresql
+fullnameOverride: jobstore-gamma
+auth:
+  postgresPassword: jobstore-gamma-pass
+  database: jobstore_gamma
+  username: demo
+  password: jobstore-gamma-pass
+primary:
+  persistence:
+    enabled: true
+    size: 4Gi
+    annotations:
+      "helm.sh/resource-policy": delete
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 1000m
+      memory: 2048Mi

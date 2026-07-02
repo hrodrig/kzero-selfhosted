@@ -1,0 +1,22 @@
+global:
+  security:
+    allowInsecureImages: true
+image:
+  registry: docker.io
+  repository: bitnamilegacy/rabbitmq
+fullnameOverride: rabbitmq
+auth:
+  username: demo
+  password: demo-rmq-pass
+persistence:
+  enabled: true
+  size: 4Gi
+  annotations:
+    "helm.sh/resource-policy": delete
+resources:
+  requests:
+    cpu: 100m
+    memory: 512Mi
+  limits:
+    cpu: 2000m
+    memory: 4096Mi

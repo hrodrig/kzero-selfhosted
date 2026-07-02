@@ -1,0 +1,8 @@
+# Helm SDK — optional release.platform/mongodb (not in default reset pipeline)
+chart: oci://registry-1.docker.io/bitnamicharts/mongodb
+version: "16.4.0"
+values_files:
+  - mongodb-values.yaml
+create_namespace: false
+wait: false
+timeout: 10m

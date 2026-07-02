@@ -1,0 +1,8 @@
+# Helm SDK — release.platform/rabbitmq
+chart: oci://registry-1.docker.io/bitnamicharts/rabbitmq
+version: "14.7.0"
+values_files:
+  - rabbitmq-values.yaml
+create_namespace: false
+wait: false
+timeout: 10m

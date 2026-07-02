@@ -46,7 +46,7 @@ Optional smoke: `kubectl port-forward -n kzero-demo svc/wordpress 8080:80` → h
 | 5 | `./run-kzero analyze` | Same step counts |
 | 6 | WordPress reachable again | port-forward or Ingress if configured |
 
-Logs: **`.logs/kzero-*.log`**
+Logs: **`.logs/kzero-<cmd>-<cluster-slug>-*.log`** (slug from `kzero target --output slug`)
 
 ---
 
@@ -85,6 +85,6 @@ Logs: **`.logs/kzero-*.log`**
 
 ## Transcripts
 
-Anonymized CLI samples (step counts may predate **kzero-demo** refresh): [transcripts/](transcripts/).
+Anonymized CLI samples (step counts may predate **kzero-demo** refresh): [transcripts/](transcripts/). Large platform profile: [platform-reset](../examples/platform-reset/) + [reset-live-transcript-platform.anonymized.md](transcripts/reset-live-transcript-platform.anonymized.md).
 
 ← [full-reset-example README](../examples/full-reset-example/README.md)

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run kzero against kzero-full-reset.sample.yml (host binary).
+# Run kzero against kzero-platform-reset.sample.yml (host binary).
 # Usage: ./run-kzero analyze | probe | down | up | reset
 #        ./run-kzero --live reset   # mutates cluster (requires YES)
 
@@ -7,18 +7,15 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ENV_FILE="${ENV_FILE:-$SCRIPT_DIR/.env}"
-# shellcheck source=lib/kubeconfig.sh
-source "$SCRIPT_DIR/lib/kubeconfig.sh"
 if [[ -f "$ENV_FILE" ]]; then
   set -a
   # shellcheck source=/dev/null
   source "$ENV_FILE"
   set +a
 fi
-kzero_demo_apply_kubeconfig || true
 
 KZERO_BIN="${KZERO_BIN:-kzero}"
-CONFIG_FILE="${CONFIG_FILE:-$SCRIPT_DIR/kzero-full-reset.sample.yml}"
+CONFIG_FILE="${CONFIG_FILE:-$SCRIPT_DIR/kzero-platform-reset.sample.yml}"
 HELM_WORKSPACE="${HELM_WORKSPACE:-$SCRIPT_DIR/helm}"
 LOGS_DIRECTORY="${LOGS_DIRECTORY:-$SCRIPT_DIR/.logs}"
 RUN_MODE_OVERRIDE=""
@@ -44,14 +41,14 @@ usage() {
 Usage: $0 [OPTIONS] <analyze|probe|down|up|reset>
 
 Options:
-  --config-file PATH   Profile YAML (default: ./kzero-full-reset.sample.yml)
+  --config-file PATH   Profile YAML (default: ./kzero-platform-reset.sample.yml)
   --kubeconfig PATH    Sets KZERO_RUN_KUBECONFIG for this run
   --live               run.mode=live (confirmation required for down/up/reset)
   --dry-run            run.mode=dry-run
   --no-color           KZERO_COLOR=never
   --help, -h           This help
 
-See README.md and run/docs/full-reset-validation.md (real cluster, namespace kzero-demo).
+See README.md (namespace platform, lab/staging only).
 EOF
 }
 
@@ -77,11 +74,11 @@ patch_helm_workspace_in_config() {
 prepare_config_for_run() {
   CONFIG_FOR_RUN="$CONFIG_FILE"
   if [[ -z "$RUN_MODE_OVERRIDE" && -z "$KZERO_COLOR_OVERRIDE" ]]; then
-    patch_helm_workspace_in_config "$CONFIG_FILE" "${CONFIG_TEMP:=$(mktemp "${TMPDIR:-/tmp}/kzero-fr.XXXXXX.yaml")}"
+    patch_helm_workspace_in_config "$CONFIG_FILE" "${CONFIG_TEMP:=$(mktemp "${TMPDIR:-/tmp}/kzero-pr.XXXXXX.yaml")}"
     CONFIG_FOR_RUN="$CONFIG_TEMP"
     return 0
   fi
-  CONFIG_TEMP="$(mktemp "${TMPDIR:-/tmp}/kzero-fr.XXXXXX.yaml")"
+  CONFIG_TEMP="$(mktemp "${TMPDIR:-/tmp}/kzero-pr.XXXXXX.yaml")"
   local input="$CONFIG_FILE"
   if [[ -n "$RUN_MODE_OVERRIDE" ]]; then
     sed -E "s/^([[:space:]]*mode:)[[:space:]]*.*/\\1 \"${RUN_MODE_OVERRIDE}\"/" "$input" >"$CONFIG_TEMP"
@@ -92,7 +89,7 @@ prepare_config_for_run() {
   fi
   if [[ -n "$KZERO_COLOR_OVERRIDE" ]]; then
     local tmp_color
-    tmp_color="$(mktemp "${TMPDIR:-/tmp}/kzero-fr-color.XXXXXX.yaml")"
+    tmp_color="$(mktemp "${TMPDIR:-/tmp}/kzero-pr-color.XXXXXX.yaml")"
     if grep -qE '^[[:space:]]*color:' "$input"; then
       sed -E "s/^([[:space:]]*color:)[[:space:]]*.*/\\1 \"${KZERO_COLOR_OVERRIDE}\"/" "$input" >"$tmp_color"
     else
@@ -104,7 +101,7 @@ prepare_config_for_run() {
     input="$CONFIG_TEMP"
   fi
   local tmp_ws
-  tmp_ws="$(mktemp "${TMPDIR:-/tmp}/kzero-fr-ws.XXXXXX.yaml")"
+  tmp_ws="$(mktemp "${TMPDIR:-/tmp}/kzero-pr-ws.XXXXXX.yaml")"
   patch_helm_workspace_in_config "$input" "$tmp_ws"
   mv "$tmp_ws" "$CONFIG_TEMP"
   CONFIG_FOR_RUN="$CONFIG_TEMP"
@@ -210,7 +207,7 @@ require_live_confirm() {
 write_log_header() {
   local logfile="$1" subcmd="$2" cfg="$3"
   {
-    echo "=== kzero full-reset-example ==="
+    echo "=== kzero platform-reset ==="
     echo "time: $(date -Iseconds 2>/dev/null || date)"
     echo "command: kzero ${subcmd}"
     echo "config: ${cfg}"
@@ -238,8 +235,8 @@ verify_prerequisites() {
       log_err "helm not found on PATH (required for release.* / infra_probe)"
       exit 1
     fi
-    if [[ ! -d "$HELM_WORKSPACE" ]]; then
-      log_err "Helm workspace missing: $HELM_WORKSPACE"
+    if [[ ! -d "$(helm_workspace_abs)" ]]; then
+      log_err "Helm workspace missing: $(helm_workspace_abs)"
       exit 1
     fi
   fi
@@ -299,7 +296,7 @@ if [[ "$COMMAND" != "analyze" ]]; then
   warn_dry_run_no_cluster_change
 fi
 
-log_info "Starting full-reset-example at $(date); run.mode=$(effective_run_mode)"
+log_info "Starting platform-reset at $(date); run.mode=$(effective_run_mode)"
 run_kzero "$COMMAND"
 
 if [[ "$COMMAND" == "reset" && "$(effective_run_mode)" == "live" ]]; then

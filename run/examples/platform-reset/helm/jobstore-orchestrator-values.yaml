@@ -1,0 +1,25 @@
+global:
+  security:
+    allowInsecureImages: true
+image:
+  registry: docker.io
+  repository: bitnamilegacy/postgresql
+fullnameOverride: jobstore-orchestrator
+auth:
+  postgresPassword: jobstore-orchestrator-pass
+  database: jobstore_orchestrator
+  username: demo
+  password: jobstore-orchestrator-pass
+primary:
+  persistence:
+    enabled: true
+    size: 4Gi
+    annotations:
+      "helm.sh/resource-policy": delete
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 1000m
+      memory: 2048Mi

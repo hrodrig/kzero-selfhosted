@@ -1,0 +1,23 @@
+global:
+  security:
+    allowInsecureImages: true
+image:
+  registry: docker.io
+  repository: bitnamilegacy/postgresql
+fullnameOverride: state-store
+auth:
+  postgresPassword: state-store-pass
+  database: platform
+  username: demo
+  password: state-store-pass
+primary:
+  persistence:
+    enabled: true
+    size: 4Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi

@@ -4,6 +4,7 @@
 |------|---------|
 | **`kzero.sample.yml`** | Minimal **dry-run** profile for copy-paste |
 | **`full-reset-example/`** | **Real-cluster** lab (**`kzero-demo`**): WordPress + Bitnami infra, **`install-demo.sh`**, live **`reset`** with truncate + PVC wipe |
+| **`platform-reset/`** | **Large lab profile** (**`platform`**): anonymized multi-tier apps + 8 Helm releases, hooks, full **`helm/`** workspace, live reset fixture log |
 | **`hooks/`** | Reference **`pre`** / **`post`** shell scripts |
 | **`infra-probe/`** | Anonymous Redis probe chart script, values, sample YAML fragment |
 

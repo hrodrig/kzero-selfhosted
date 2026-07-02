@@ -1,0 +1,125 @@
+=== kzero platform-reset ===
+time: 2026-07-01T18:03:11-04:00
+command: kzero reset
+config: /var/folders/vv/1n9326nd5nv4f5p4z30b87740000gn/T//kzero-platform-reset.XXXXXX.yaml
+run.mode: live
+2026/07/01 18:03:11: kzero - [INF] - Kubernetes target:
+2026/07/01 18:03:11: kzero - [INF] -   started_at: 2026-07-01T18:03:11-04:00
+2026/07/01 18:03:11: kzero - [INF] -   client_id: platform-reset-lab-v1
+2026/07/01 18:03:11: kzero - [INF] -   os_user: ops
+2026/07/01 18:03:11: kzero - [INF] -   os_uid: 501
+2026/07/01 18:03:11: kzero - [INF] -   context: lab-context
+2026/07/01 18:03:11: kzero - [INF] -   cluster: platform-lab-cluster
+2026/07/01 18:03:11: kzero - [INF] -   namespace: platform
+2026/07/01 18:03:11: kzero - [INF] -   api_server: https://lab.example:6443
+2026/07/01 18:03:11: kzero - [INF] -   kubeconfig: $HOME/.kube/config
+2026/07/01 18:03:11: kzero - [INF] -   config_metadata: name="platform-lab" environment="lab" (YAML label only; not verified against the API)
+2026/07/01 18:03:11: kzero - [INF] - kzero target finished in 1ms
+---
+2026/07/01 18:03:11: kzero - [INF] - Kubernetes target:
+2026/07/01 18:03:11: kzero - [INF] -   started_at: 2026-07-01T18:03:11-04:00
+2026/07/01 18:03:11: kzero - [INF] -   client_id: platform-reset-lab-v1
+2026/07/01 18:03:11: kzero - [INF] -   os_user: ops
+2026/07/01 18:03:11: kzero - [INF] -   os_uid: 501
+2026/07/01 18:03:11: kzero - [INF] -   context: lab-context
+2026/07/01 18:03:11: kzero - [INF] -   cluster: platform-lab-cluster
+2026/07/01 18:03:11: kzero - [INF] -   namespace: platform
+2026/07/01 18:03:11: kzero - [INF] -   api_server: https://lab.example:6443
+2026/07/01 18:03:11: kzero - [INF] -   kubeconfig: $HOME/.kube/config
+2026/07/01 18:03:11: kzero - [INF] -   config_metadata: name="platform-lab" environment="lab" (YAML label only; not verified against the API)
+
+2026/07/01 18:03:12: kzero - [INF] - [live] scale statefulset.platform/worker-alpha-slave -> 0 replicas
+2026/07/01 18:03:15: kzero - [INF] - [live] scale statefulset.platform/worker-beta-slave -> 0 replicas
+2026/07/01 18:03:16: kzero - [INF] - [live] scale deployment.platform/worker-alpha-dashboard -> 0 replicas
+2026/07/01 18:03:17: kzero - [INF] - [live] scale deployment.platform/worker-beta-dashboard -> 0 replicas
+2026/07/01 18:03:24: kzero - [INF] - [live] scale deployment.platform/worker-beta -> 0 replicas
+2026/07/01 18:03:25: kzero - [INF] - [live] scale statefulset.platform/orchestrator-slave -> 0 replicas
+2026/07/01 18:03:26: kzero - [INF] - [live] scale statefulset.platform/worker-gamma-slave -> 0 replicas
+2026/07/01 18:03:32: kzero - [INF] - [live] scale statefulset.platform/notifier-slave -> 0 replicas
+2026/07/01 18:03:44: kzero - [INF] - [live] scale deployment.platform/frontend -> 0 replicas
+2026/07/01 18:03:46: kzero - [INF] - [live] scale deployment.platform/auth -> 0 replicas
+2026/07/01 18:03:50: kzero - [INF] - [live] scale deployment.platform/completion -> 0 replicas
+2026/07/01 18:03:55: kzero - [INF] - [live] scale deployment.platform/config -> 0 replicas
+2026/07/01 18:03:56: kzero - [INF] - [live] scale deployment.platform/orchestrator -> 0 replicas
+2026/07/01 18:03:57: kzero - [INF] - [live] scale deployment.platform/orchestrator-dashboard -> 0 replicas
+2026/07/01 18:03:59: kzero - [INF] - [live] scale deployment.platform/worker-gamma-dashboard -> 0 replicas
+2026/07/01 18:03:59: kzero - [INF] - [live] scale deployment.platform/worker-gamma -> 0 replicas
+2026/07/01 18:04:03: kzero - [INF] - [live] scale deployment.platform/notifier -> 0 replicas
+2026/07/01 18:04:08: kzero - [INF] - [live] scale deployment.platform/cache-eviction -> 0 replicas
+2026/07/01 18:04:13: kzero - [INF] - [live] scale deployment.platform/log-collector -> 0 replicas
+2026/07/01 18:04:15: kzero - [INF] - [live] scale deployment.platform/status -> 0 replicas
+2026/07/01 18:04:16: kzero - [INF] - [live] scale deployment.platform/vault-helper -> 0 replicas
+2026/07/01 18:04:17: kzero - [INF] - [live] scale deployment.platform/notifier-dashboard -> 0 replicas
+2026/07/01 18:04:18: kzero - [INF] - [live] hook pipeline-down-22: ./hooks/truncate-job-queue.sh
+2026/07/01 18:04:24: kzero - [INF] - TRUNCATE TABLE
+2026/07/01 18:04:24: kzero - [INF] - truncate-job-queue: TRUNCATE job_queue ok
+2026/07/01 18:04:24: kzero - [INF] - [live] helm sdk uninstall platform/jobstore-notifier (--wait --ignore-not-found)
+2026/07/01 18:04:35: kzero - [INF] - [live] helm sdk uninstall platform/jobstore-orchestrator (--wait --ignore-not-found)
+2026/07/01 18:04:50: kzero - [INF] - [live] helm sdk uninstall platform/jobstore-gamma (--wait --ignore-not-found)
+2026/07/01 18:05:07: kzero - [INF] - [live] helm sdk uninstall platform/jobstore-beta (--wait --ignore-not-found)
+2026/07/01 18:05:24: kzero - [INF] - [live] helm sdk uninstall platform/jobstore-alpha (--wait --ignore-not-found)
+2026/07/01 18:05:42: kzero - [INF] - [live] helm sdk uninstall platform/redis-cache (--wait --ignore-not-found)
+2026/07/01 18:06:00: kzero - [INF] - [live] helm sdk uninstall platform/rabbitmq (--wait --ignore-not-found)
+2026/07/01 18:06:29: kzero - [INF] - [live] helm sdk uninstall platform/postgresql (--wait --ignore-not-found)
+2026/07/01 18:06:46: kzero - [INF] - [live] delete pvc platform/data-jobstore-alpha-0 (background propagation, ignore-not-found)
+2026/07/01 18:06:46: kzero - [INF] - [live] delete pvc platform/data-platform-postgresql-0 (background propagation, ignore-not-found)
+2026/07/01 18:06:46: kzero - [INF] - [live] delete pvc platform/data-jobstore-beta-0 (background propagation, ignore-not-found)
+2026/07/01 18:06:47: kzero - [INF] - [live] delete pvc platform/data-jobstore-gamma-0 (background propagation, ignore-not-found)
+2026/07/01 18:06:47: kzero - [INF] - [live] delete pvc platform/data-jobstore-orchestrator-0 (background propagation, ignore-not-found)
+2026/07/01 18:06:47: kzero - [INF] - [live] delete pvc platform/data-rabbitmq-0 (background propagation, ignore-not-found)
+2026/07/01 18:06:47: kzero - [INF] - [live] delete pvc platform/redis-data-redis-cache-master-0 (background propagation, ignore-not-found)
+2026/07/01 18:06:48: kzero - [INF] - [live] delete pvc platform/data-jobstore-notifier-0 (background propagation, ignore-not-found)
+2026/07/01 18:06:50: kzero - [INF] - [live] helm sdk upgrade --install platform/postgresql (helm upgrade --install (sdk), chart=oci://registry-1.docker.io/bitnamicharts/postgresql, version=12.1.2, timeout=10m0s)
+2026/07/01 18:07:15: kzero - [INF] - [live] helm sdk upgrade --install platform/rabbitmq (helm upgrade --install (sdk), chart=oci://registry-1.docker.io/bitnamicharts/rabbitmq, version=11.16.2, timeout=10m0s)
+2026/07/01 18:07:41: kzero - [INF] - [live] helm sdk upgrade --install platform/jobstore-alpha (helm upgrade --install (sdk), chart=oci://registry-1.docker.io/bitnamicharts/postgresql, version=12.1.2, timeout=10m0s)
+2026/07/01 18:08:05: kzero - [INF] - [live] helm sdk upgrade --install platform/jobstore-beta (helm upgrade --install (sdk), chart=oci://registry-1.docker.io/bitnamicharts/postgresql, version=12.1.2, timeout=10m0s)
+2026/07/01 18:08:22: kzero - [INF] - [live] helm sdk upgrade --install platform/jobstore-gamma (helm upgrade --install (sdk), chart=oci://registry-1.docker.io/bitnamicharts/postgresql, version=12.1.2, timeout=10m0s)
+2026/07/01 18:08:44: kzero - [INF] - [live] helm sdk upgrade --install platform/jobstore-orchestrator (helm upgrade --install (sdk), chart=oci://registry-1.docker.io/bitnamicharts/postgresql, version=12.1.2, timeout=10m0s)
+2026/07/01 18:08:55: kzero - [INF] - [live] hook pipeline-up-5-post: ./hooks/wait-helm-release-ready.sh
+2026/07/01 18:09:12: kzero - [INF] - Waiting for 1 pods to be ready...
+2026/07/01 18:09:12: kzero - [INF] - partitioned roll out complete: 1 new pods have been updated...
+2026/07/01 18:09:12: kzero - [INF] - [live] helm sdk upgrade --install platform/jobstore-notifier (helm upgrade --install (sdk), chart=oci://registry-1.docker.io/bitnamicharts/postgresql, version=12.1.2, wait, timeout=10m0s)
+2026/07/01 18:09:42: kzero - [INF] - [live] still installing release release.platform/jobstore-notifier (elapsed 30s)
+2026/07/01 18:09:52: kzero - [INF] - [live] helm sdk upgrade --install platform/redis-cache (helm upgrade --install (sdk), chart=oci://registry-1.docker.io/bitnamicharts/redis, version=17.0.1, wait, timeout=10m0s)
+2026/07/01 18:10:22: kzero - [INF] - [live] still installing release release.platform/redis-cache (elapsed 30s)
+2026/07/01 18:10:42: kzero - [INF] - [live] scale deployment.platform/vault-helper -> 1 replicas
+2026/07/01 18:10:43: kzero - [INF] - [live] scale deployment.platform/config -> 1 replicas
+2026/07/01 18:10:44: kzero - [INF] - [live] scale deployment.platform/notifier -> 1 replicas
+2026/07/01 18:10:46: kzero - [INF] - [live] scale deployment.platform/worker-gamma -> 1 replicas
+2026/07/01 18:10:49: kzero - [INF] - [live] scale deployment.platform/worker-beta -> 1 replicas
+2026/07/01 18:10:52: kzero - [INF] - [live] scale deployment.platform/cache-eviction -> 1 replicas
+2026/07/01 18:10:59: kzero - [INF] - [live] scale deployment.platform/completion -> 1 replicas
+2026/07/01 18:11:05: kzero - [INF] - [live] scale deployment.platform/status -> 1 replicas
+2026/07/01 18:11:07: kzero - [INF] - [live] scale deployment.platform/worker-gamma-dashboard -> 1 replicas
+2026/07/01 18:11:09: kzero - [INF] - [live] scale deployment.platform/auth -> 1 replicas
+2026/07/01 18:11:11: kzero - [INF] - [live] scale deployment.platform/log-collector -> 1 replicas
+2026/07/01 18:11:12: kzero - [INF] - [live] scale deployment.platform/notifier-dashboard -> 1 replicas
+2026/07/01 18:11:16: kzero - [INF] - [live] scale deployment.platform/orchestrator -> 1 replicas
+2026/07/01 18:11:17: kzero - [INF] - [live] wait rollout deployment.platform/orchestrator (timeout 15m0s)
+2026/07/01 18:11:47: kzero - [INF] - [live] still waiting rollout deployment.platform/orchestrator (elapsed 30s)
+2026/07/01 18:12:17: kzero - [INF] - [live] still waiting rollout deployment.platform/orchestrator (elapsed 1m0s)
+2026/07/01 18:12:22: kzero - [INF] - [live] scale deployment.platform/orchestrator-dashboard -> 1 replicas
+2026/07/01 18:12:28: kzero - [INF] - [live] hook pipeline-up-22-pre: ./hooks/wait-master-ready.sh
+2026/07/01 18:12:31: kzero - [INF] - deployment "worker-gamma" successfully rolled out
+2026/07/01 18:12:31: kzero - [INF] - [live] scale statefulset.platform/worker-gamma-slave -> 4 replicas
+2026/07/01 18:12:34: kzero - [INF] - [live] hook pipeline-up-23-pre: ./hooks/wait-master-ready.sh
+2026/07/01 18:12:36: kzero - [INF] - deployment "notifier" successfully rolled out
+2026/07/01 18:12:36: kzero - [INF] - [live] scale statefulset.platform/notifier-slave -> 4 replicas
+2026/07/01 18:12:37: kzero - [INF] - [live] hook pipeline-up-24-pre: ./hooks/wait-master-ready.sh
+2026/07/01 18:12:38: kzero - [INF] - deployment "orchestrator" successfully rolled out
+2026/07/01 18:12:38: kzero - [INF] - [live] scale statefulset.platform/orchestrator-slave -> 4 replicas
+2026/07/01 18:12:40: kzero - [INF] - [live] scale deployment.platform/worker-beta-dashboard -> 1 replicas
+2026/07/01 18:12:42: kzero - [INF] - [live] scale deployment.platform/worker-alpha-dashboard -> 1 replicas
+2026/07/01 18:12:43: kzero - [INF] - [live] hook pipeline-up-27-pre: ./hooks/wait-dashboard-ready.sh
+2026/07/01 18:12:47: kzero - [INF] - Waiting for deployment "worker-alpha-dashboard" rollout to finish: 0 of 1 updated replicas are available...
+2026/07/01 18:12:47: kzero - [INF] - deployment "worker-alpha-dashboard" successfully rolled out
+2026/07/01 18:12:47: kzero - [INF] - [live] scale statefulset.platform/worker-alpha-slave -> 4 replicas
+2026/07/01 18:12:48: kzero - [INF] - [live] hook pipeline-up-28-pre: ./hooks/wait-master-ready.sh
+2026/07/01 18:12:49: kzero - [INF] - deployment "worker-beta" successfully rolled out
+2026/07/01 18:12:49: kzero - [INF] - [live] scale statefulset.platform/worker-beta-slave -> 4 replicas
+2026/07/01 18:12:51: kzero - [INF] - [live] hook pipeline-up-29: ./hooks/rollout-restart-notifier.sh
+2026/07/01 18:12:56: kzero - [INF] - deployment.apps/notifier restarted
+2026/07/01 18:12:56: kzero - [INF] - statefulset.apps/notifier-slave restarted
+2026/07/01 18:12:56: kzero - [INF] - rollout-restart-notifier: deployment and statefulset restarted
+2026/07/01 18:12:56: kzero - [INF] - [live] scale deployment.platform/frontend -> 3 replicas
+2026/07/01 18:12:56: kzero - [INF] - kzero reset finished in 9m45.156s
