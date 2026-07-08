@@ -4,7 +4,7 @@ Anonymized **real-cluster** maintenance profile derived from a QA live reset (~*
 
 **Not production.** Assumes Deployments/StatefulSets already exist in **`platform`** (installed by your platform chart or a prior bootstrap). This profile scales apps down, truncates a job queue, reinstalls infra Helm releases, wipes PVCs, and scales back up.
 
-**Requires [kzero v0.8.0+](https://github.com/hrodrig/kzero/releases/tag/v0.8.0)** (**v0.8.1** recommended; **`kzero target --output slug`** for log filenames), **`kubectl`**, **`helm`**, lab kubeconfig, StorageClass.
+**Requires [kzero v0.9.0+](https://github.com/hrodrig/kzero/releases/tag/v0.9.0)** (**`kzero target --output slug`** for log filenames; graceful shutdown on **SIGINT/SIGTERM** for cron/systemd), **`kubectl`**, **`helm`**, lab kubeconfig, StorageClass. See [kzero deployment-models](https://github.com/hrodrig/kzero/blob/main/docs/deployment-models.md).
 
 Compare with **[full-reset-example](../full-reset-example/)** (self-contained **`kzero-demo`**, WordPress bootstrap, smaller step count).
 

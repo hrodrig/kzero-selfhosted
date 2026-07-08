@@ -2,7 +2,7 @@
 
 ← [Back to the repository README](../../README.md).
 
-Pick a **mode** below. **Install the CLI** from **[kzero releases](https://github.com/hrodrig/kzero/releases)** ( **[v0.8.1](https://github.com/hrodrig/kzero/releases/tag/v0.8.1)** recommended; **v0.8.0+** for **`run.api_watchdog`**). **This** repo holds operator docs and examples only.
+Pick a **mode** below. **Install the CLI** from **[kzero releases](https://github.com/hrodrig/kzero/releases)** ( **[v0.9.0](https://github.com/hrodrig/kzero/releases/tag/v0.9.0)** recommended; **v0.8.0+** for **`run.api_watchdog`**). **This** repo holds operator docs and examples only.
 
 | Directory | When to use |
 |-----------|-------------|
@@ -18,7 +18,7 @@ Pick a **mode** below. **Install the CLI** from **[kzero releases](https://githu
 
 **Not shipped here:** Docker Compose, a Helm chart that installs **kzero** as a long-running in-cluster controller, or bundled **`kubectl`** / **`helm`** inside the runner image. **In-cluster Jobs** (reference manifests under **`run/in-cluster/`**) use the **distroless GHCR image** with **`run.execution: native`** only; **`release.*`** and shell hooks still need host tooling or future **Helm SDK** / **`exec`** steps in **kzero**.
 
-Use a published image tag that matches your desired [kzero](https://github.com/hrodrig/kzero) release (in-cluster examples pin **`v0.8.1`**).
+Use a published image tag that matches your desired [kzero](https://github.com/hrodrig/kzero) release (in-cluster examples pin **`v0.9.0`**).
 
 ---
 

@@ -28,7 +28,7 @@ make test-kind-e2e         # full kzero exercise (needs kzero on PATH or KZERO_B
 ## Prerequisites
 
 - **Docker**, **kind**, **kubectl** on `PATH`
-- **`kzero`** **v0.8.0+** installed for **`make test-kind-e2e`** ([releases](https://github.com/hrodrig/kzero/releases/tag/v0.8.0); **v0.8.1** recommended) or set **`KZERO_BIN`** to the binary path
+- **`kzero`** **v0.9.0** installed for **`make test-kind-e2e`** ([releases](https://github.com/hrodrig/kzero/releases/tag/v0.9.0)) or set **`KZERO_BIN`** to the binary path
 
 ## Environment (optional)
 

@@ -7,10 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.11] - 2026-07-08
+
 ### Added
 
 - **`run/examples/platform-reset/`** — anonymized large maintenance profile (**`platform`** namespace): generic workloads, full **`helm/`** workspace (PostgreSQL, RabbitMQ, Redis, five jobstores, optional state-store/mongodb), hooks, **`run-kzero`** with cluster slug log names, anonymized live reset log fixture.
 - **`run/docs/transcripts/reset-live-transcript-platform.anonymized.md`** — summary of ~9m45s live reset (throttled progress lines, hook ordering).
+
+### Changed
+
+- **Upstream pin:** [kzero v0.9.0](https://github.com/hrodrig/kzero/releases/tag/v0.9.0) in in-cluster Job manifests, kind smoke defaults, **`docker run`** examples, and operator docs (was **v0.8.1**).
+- **Operator docs:** cross-links to [kzero deployment-models](https://github.com/hrodrig/kzero/blob/main/docs/deployment-models.md); document **v0.9.0** features used by wrappers (**`kzero target --output slug`**, graceful **SIGINT/SIGTERM** shutdown, **`notify.require_delivery`**).
+- **Example READMEs:** **v0.9.0** recommended for **`platform-reset`** and **`full-reset-example`** (bastion live **`reset`**).
 
 ## [0.1.10] - 2026-06-29
 
@@ -138,7 +146,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Docker Compose**, **`run/common/`**, Helm chart / **`run/kubernetes/`**, and Compose CI workflow — **kzero** is intended to run on hosts with real **`kubectl`**, not as a bundled Compose or in-cluster chart story.
 
-[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.10...HEAD
+[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.11...HEAD
+[0.1.11]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.10...v0.1.11
 [0.1.10]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.9...v0.1.10
 [0.1.9]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.8...v0.1.9
 [0.1.8]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.7...v0.1.8

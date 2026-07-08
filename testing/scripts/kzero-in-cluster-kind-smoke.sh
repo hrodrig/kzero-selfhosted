@@ -8,7 +8,7 @@ set -euo pipefail
 CLUSTER_NAME="${KZERO_KIND_IN_CLUSTER_CLUSTER:-kzero-in-cluster-smoke}"
 JOB_TIMEOUT="${KZERO_KIND_JOB_TIMEOUT:-300s}"
 ROLLOUT_TIMEOUT="${KZERO_KIND_ROLLOUT_TIMEOUT:-120s}"
-DEFAULT_IMAGE="ghcr.io/hrodrig/kzero:v0.8.1"
+DEFAULT_IMAGE="ghcr.io/hrodrig/kzero:v0.9.0"
 KZERO_IN_CLUSTER_IMAGE="${KZERO_IN_CLUSTER_IMAGE:-$DEFAULT_IMAGE}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

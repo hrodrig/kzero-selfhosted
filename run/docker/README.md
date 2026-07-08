@@ -8,7 +8,7 @@
 
 The published image (**[GHCR](https://github.com/hrodrig/kzero/pkgs/container/kzero)**) is **distroless**: only the **`kzero`** binary (no shell, no **`kubectl`**, no **`helm`**). **`analyze`** and **`version`** only read config and print summaries — they do **not** need **`kubectl`**. **`down`**, **`up`**, and **`reset`** in **`live`** mode **will** invoke **`kubectl`** / **`helm`** on **`PATH`**; use the **native package install** on a bastion or build a **custom image** that layers those tools if you insist on containers for **`live`**.
 
-Examples use **`v0.8.1`**; pick a tag that exists on GHCR ([kzero releases](https://github.com/hrodrig/kzero/releases)).
+Examples use **`v0.9.0`**; pick a tag that exists on GHCR ([kzero releases](https://github.com/hrodrig/kzero/releases)).
 
 ### Bastion or automation host (binary)
 
@@ -28,14 +28,14 @@ You can mount **[`run/examples/kzero.sample.yml`](../examples/kzero.sample.yml)*
 ```bash
 docker run --rm \
   -v "$PWD/kzero.yaml:/config/kzero.yaml:ro" \
-  ghcr.io/hrodrig/kzero:v0.8.1 \
+  ghcr.io/hrodrig/kzero:v0.9.0 \
   --config /config/kzero.yaml analyze
 ```
 
 ### Print version
 
 ```bash
-docker run --rm ghcr.io/hrodrig/kzero:v0.8.1 version
+docker run --rm ghcr.io/hrodrig/kzero:v0.9.0 version
 ```
 
 **Check:** **`analyze`** prints **`Config:`**, **`Schema:`**, **`Run mode:`**, **`Run execution:`**, indexed **`[down]`** / **`[up]`** step lists, optional **Cluster validation** (when kubeconfig loads), and (when applicable) a **Deferred** block; non-fatal warnings may appear on **stderr**. Exit code **0** on success unless cluster validation reports **FAIL**. See [kzero SPEC — `kzero analyze`](https://github.com/hrodrig/kzero/blob/main/docs/SPECIFICATIONS.md#kzero-analyze).

@@ -6,6 +6,6 @@
 | **[`kind/in-cluster/`](kind/in-cluster/README.md)** | **kind** + **kzero Jobs** inside the cluster (**`make test-kind-in-cluster`**) |
 | **`scripts/`** | Bash drivers (**`kzero-kind-e2e.sh`**, **`kzero-in-cluster-kind-smoke.sh`**) |
 
-**Upstream:** application unit tests and **`make release-check`** live in **[hrodrig/kzero](https://github.com/hrodrig/kzero)** (use **kzero v0.8.0+** for **`run.api_watchdog`**, notify, verify, probe, preflight, and current **`run.execution`** behavior; **v0.8.1** recommended). This tree only validates **kzero against a disposable kind cluster** using manifests committed here.
+**Upstream:** application unit tests and **`make release-check`** live in **[hrodrig/kzero](https://github.com/hrodrig/kzero)** (use **kzero v0.9.0** for **`run.api_watchdog`**, **`notify.require_delivery`**, graceful shutdown, **`kzero target --output slug`**, notify, verify, probe, preflight, and current **`run.execution`** behavior). This tree only validates **kzero against a disposable kind cluster** using manifests committed here.
 
 ← [Back to repository README](../../README.md)
