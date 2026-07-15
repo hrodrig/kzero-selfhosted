@@ -19,7 +19,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: kzero
-          image: ghcr.io/hrodrig/kzero:v0.9.0
+          image: ghcr.io/hrodrig/kzero:v1.0.0
           imagePullPolicy: IfNotPresent
           args:
             - analyze

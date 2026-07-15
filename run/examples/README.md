@@ -14,6 +14,6 @@
 
 **Schema and feature cookbooks** (notify, probe, verify): **[kzero SPECIFICATIONS](https://github.com/hrodrig/kzero/blob/main/docs/SPECIFICATIONS.md)** and **[docs/examples/](https://github.com/hrodrig/kzero/tree/main/docs/examples)**.
 
-Examples assume **kzero** [v0.9.0+](https://github.com/hrodrig/kzero/releases/tag/v0.9.0) on the host. For **`docker run`**, see **[`run/docker/README.md`](../docker/README.md)**.
+Examples assume **kzero** [v1.0.0+](https://github.com/hrodrig/kzero/releases/tag/v1.0.0) on the host. For **`docker run`**, see **[`run/docker/README.md`](../docker/README.md)**.
 
 ← [Back to run/README](../README.md)

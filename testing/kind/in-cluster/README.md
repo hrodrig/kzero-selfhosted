@@ -13,7 +13,7 @@ Runs **`kzero`** **inside** the cluster as **Kubernetes Jobs** (not from the hos
 ## Prerequisites
 
 - **Docker**, **kind**, **kubectl** on `PATH`
-- **kzero image** with **InClusterConfig** when **`run.kubeconfig`** is empty (**`v0.7.0+`** minimum; examples pin **`v0.9.0`**, or build locally — see below)
+- **kzero image** with **InClusterConfig** when **`run.kubeconfig`** is empty (**`v0.7.0+`** minimum; examples pin **`v1.0.0`**, or build locally — see below)
 
 **Does not** require the **kzero** binary on the host (unlike **`make test-kind-e2e`**).
 
@@ -31,7 +31,7 @@ Runs **`kzero`** **inside** the cluster as **Kubernetes Jobs** (not from the hos
 | Variable | Default | Purpose |
 |----------|---------|---------|
 | **`KZERO_KIND_IN_CLUSTER_CLUSTER`** | **`kzero-in-cluster-smoke`** | kind cluster name |
-| **`KZERO_IN_CLUSTER_IMAGE`** | **`ghcr.io/hrodrig/kzero:v0.9.0`** | Job container image (must match loaded image) |
+| **`KZERO_IN_CLUSTER_IMAGE`** | **`ghcr.io/hrodrig/kzero:v1.0.0`** | Job container image (must match loaded image) |
 | **`KZERO_IN_CLUSTER_BUILD`** | unset | Set to **`1`** to **`docker build`** from **`KZERO_REPO`** instead of pull |
 | **`KZERO_REPO`** | **`../kzero`** if present | Path to **[hrodrig/kzero](https://github.com/hrodrig/kzero)** clone for local build |
 | **`KZERO_KIND_JOB_TIMEOUT`** | **`300s`** | **`kubectl wait`** for each Job |

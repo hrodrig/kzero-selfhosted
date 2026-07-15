@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.12] - 2026-07-15
+
+### Changed
+
+- **Upstream pin:** [kzero v1.0.0](https://github.com/hrodrig/kzero/releases/tag/v1.0.0) in in-cluster Job manifests, kind smoke defaults, **`docker run`** examples, and operator docs (was **v0.9.0**).
+- **Operator docs:** document **v1.0.0** stable contract (default **`run.execution: native`**, exit codes **0–4**, **`kzero doctor`**); recommend **v1.0.0** for **`platform-reset`** and **`full-reset-example`**.
+
 ## [0.1.11] - 2026-07-08
 
 ### Added
@@ -146,7 +153,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Docker Compose**, **`run/common/`**, Helm chart / **`run/kubernetes/`**, and Compose CI workflow — **kzero** is intended to run on hosts with real **`kubectl`**, not as a bundled Compose or in-cluster chart story.
 
-[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.11...HEAD
+[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.12...HEAD
+[0.1.12]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.11...v0.1.12
 [0.1.11]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.10...v0.1.11
 [0.1.10]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.9...v0.1.10
 [0.1.9]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.8...v0.1.9
