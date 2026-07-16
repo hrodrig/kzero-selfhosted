@@ -2,7 +2,7 @@
 
 Operator checklist for **[full-reset-example](../examples/full-reset-example/)** on a **real lab/staging cluster** (namespace **`kzero-demo`**). **Not kind.** **Not production.**
 
-**Upstream:** [kzero v1.0.0](https://github.com/hrodrig/kzero/releases/tag/v1.0.0)
+**Upstream:** [kzero v1.0.1](https://github.com/hrodrig/kzero/releases/tag/v1.0.1)
 
 ---
 
@@ -11,7 +11,7 @@ Operator checklist for **[full-reset-example](../examples/full-reset-example/)**
 | Item | Notes |
 |------|--------|
 | **Cluster** | Any reachable Kubernetes (k3s, RKE, EKS, GKE, on-prem lab, …) |
-| **kzero** | `kzero version` ≥ **1.0.0** on the bastion/host |
+| **kzero** | `kzero version` ≥ **1.0.1** on the bastion/host |
 | **kubectl** / **helm** | On `PATH`; **`KUBECONFIG`** in **`.env`** |
 | **StorageClass** | Default SC for Bitnami PVCs |
 | **Egress** | Pull from Docker Hub / `registry-1.docker.io` (Bitnami OCI) |

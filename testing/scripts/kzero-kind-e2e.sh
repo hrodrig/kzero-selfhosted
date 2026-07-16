@@ -208,7 +208,7 @@ if ! "$KZERO_BIN" down --config "$CFG_DRY" 2>&1 | tee "$dry_down_out"; then
   exit 1
 fi
 if ! grep -q 'server-side dry-run ok' "$dry_down_out"; then
-  echo "error: dry-run down missing server-side dry-run confirmation (need kzero v1.0.0+ and run.execution: native)"
+  echo "error: dry-run down missing server-side dry-run confirmation (need kzero v1.0.1+ and run.execution: native)"
   cat "$dry_down_out"
   rm -f "$dry_down_out"
   dump_diagnostics

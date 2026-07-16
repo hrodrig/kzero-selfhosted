@@ -1,6 +1,6 @@
 schema_version: "1.0"
 # Minimal sample for docs — workload refs only, dry-run (no kubectl calls during analyze).
-# Omitting run.execution defaults to native on kzero v1.0.0+ (explicit shell/auto if needed).
+# Omitting run.execution defaults to native on kzero v1.0.1+ (explicit shell/auto if needed).
 pipelines:
   down:
     - deployment.demo/app

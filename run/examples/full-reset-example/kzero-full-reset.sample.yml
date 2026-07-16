@@ -5,7 +5,7 @@
 #   ./run-kzero analyze
 #   ./run-kzero --live reset       # lab only — mutates kzero-demo only
 #
-# Requires kzero v1.0.0+ (recommended), kubectl, helm, StorageClass for PVCs.
+# Requires kzero v1.0.1+ (recommended), kubectl, helm, StorageClass for PVCs.
 # See README.md and run/docs/full-reset-validation.md.
 
 schema_version: "1.0"

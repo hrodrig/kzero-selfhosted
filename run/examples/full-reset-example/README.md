@@ -2,7 +2,7 @@
 
 Self-contained **maintenance reset** demo on **your own Kubernetes cluster** (not kind): namespace **`kzero-demo`**, public images only, Bitnami Helm charts from **Docker Hub OCI**, WordPress + MySQL + PostgreSQL + Redis + RabbitMQ.
 
-**Requires [kzero v1.0.0+](https://github.com/hrodrig/kzero/releases/tag/v1.0.0)** (**v1.0.0** recommended), **`kubectl`**, **`helm`**, a **lab/staging kubeconfig**, and a **StorageClass** for PVCs. **Do not run against production.**
+**Requires [kzero v1.0.1+](https://github.com/hrodrig/kzero/releases/tag/v1.0.1)** (**v1.0.1** recommended), **`kubectl`**, **`helm`**, a **lab/staging kubeconfig**, and a **StorageClass** for PVCs. **Do not run against production.**
 
 ## Quick start
 
