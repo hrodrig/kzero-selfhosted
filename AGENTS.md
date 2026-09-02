@@ -39,7 +39,7 @@ Context and instructions for AI coding agents working on **kzero-selfhosted** (o
 
 ## Version bump (this repo — on `develop`, before merge/tag)
 
-**`VERSION`** here is **kzero-selfhosted** semver — **not** the **kzero** app version. Image tags such as **`ghcr.io/hrodrig/kzero:v1.1.0`** follow **[kzero releases](https://github.com/hrodrig/kzero/releases)**; bump example pins when documenting a new upstream release.
+**`VERSION`** here is **kzero-selfhosted** semver — **not** the **kzero** app version. Image tags such as **`ghcr.io/hrodrig/kzero:v1.1.1`** follow **[kzero releases](https://github.com/hrodrig/kzero/releases)**; bump example pins when documenting a new upstream release.
 
 | # | Artifact | Action |
 |---|----------|--------|
@@ -55,7 +55,7 @@ Context and instructions for AI coding agents working on **kzero-selfhosted** (o
 
 ## Upstream pin (e2e and docs)
 
-Kind smoke and Docker examples currently assume **kzero** [v1.1.0+](https://github.com/hrodrig/kzero/releases/tag/v1.1.0): default **`run.execution: native`**, exit codes **0–4**, **`kzero doctor`**, **`kzero diff`**, notify/watchdog, **`command.shell`**, native **`job`/`cronjob`**, Helm SDK **v4**.
+Kind smoke and Docker examples currently pin **kzero** [v1.1.1](https://github.com/hrodrig/kzero/releases/tag/v1.1.1) on GHCR (minimum feature contract **v1.1.0+**).
 
 Key env overrides for tests: **`KZERO_BIN`**, **`KZERO_IN_CLUSTER_IMAGE`**, **`KZERO_REPO`**, **`KZERO_IN_CLUSTER_BUILD=1`**.
 
