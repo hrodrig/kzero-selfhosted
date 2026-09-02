@@ -28,4 +28,4 @@
 
 Report sensitive issues per **[SECURITY.md](SECURITY.md)**.
 
-Community interaction: **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)**. Notable repo changes: **[CHANGELOG.md](CHANGELOG.md)**.
+Community interaction: **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)**. Notable repo changes: **[CHANGELOG.md](CHANGELOG.md)**. AI agent scope and release policy: **[AGENTS.md](AGENTS.md)**.
