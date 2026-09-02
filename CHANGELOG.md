@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **AGENTS.md** tracked in Git again (aligned with **gghstats-selfhosted**); expanded operator agent guidelines. **`.cursor/`** remains local-only.
+
 ## [0.1.15] - 2026-08-01
 
 ### Changed
