@@ -10,7 +10,7 @@ Pick a **mode** below. **Install the CLI** from **[kzero releases](https://githu
 | [`docker/`](docker/README.md) | **`docker run`** with **`ghcr.io/hrodrig/kzero`** — **`analyze`** / **`version`**; not a full **live** runtime without host **`kubectl`** / **`helm`** |
 | [`examples/`](examples/README.md) | Minimal **`kzero.sample.yml`**, **`full-reset-example/`**, reference **hooks**, **infra-probe** Redis assets |
 | [`in-cluster/`](in-cluster/README.md) | **Job** + **ServiceAccount** + **RBAC** + **ConfigMap** — run **`kzero`** inside the cluster (native scale, no kubeconfig mount) |
-| [`docs/`](docs/automation-and-pipelines.md) | **CI/cron**, **`KZERO_RUN_MODE`**, YES-gated wrappers, safety checklist · [**full-reset validation**](docs/full-reset-validation.md) |
+| [`docs/`](docs/automation-and-pipelines.md) | **CI/cron**, **`KZERO_RUN_MODE`**, YES-gated wrappers, safety checklist · [**full-reset validation**](docs/full-reset-validation.md) · [**truncate + heal**](docs/truncate-heal-on-degraded.md) |
 | [`../testing/kind/`](../testing/kind/README.md) | Disposable **kind** cluster + **kzero** live smoke (**`make test-kind-e2e`**) |
 | [`../testing/kind/in-cluster/`](../testing/kind/in-cluster/README.md) | **kind** + **kzero Jobs** in-cluster (**`make test-kind-in-cluster`**) |
 

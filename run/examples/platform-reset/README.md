@@ -37,6 +37,7 @@ Transcript summary: **[run/docs/transcripts/reset-live-transcript-platform.anony
 | `env.example` | Copy to `.env` (not committed) |
 | `run-kzero` | Wrapper: YES gate, cluster slug in log name, tee to `.logs/` |
 | `hooks/` | `truncate-job-queue`, `wait-master-ready`, `wait-dashboard-ready`, `wait-helm-release-ready`, `rollout-restart-notifier` |
+| (shared) | Degraded-cluster truncate+heal: [../hooks/truncate-with-heal.sh](../hooks/truncate-with-heal.sh) — [docs](../../docs/truncate-heal-on-degraded.md) |
 | `helm/` | Chart manifests + values (native **`run.execution`**) |
 
 ---
