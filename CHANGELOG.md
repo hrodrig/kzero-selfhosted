@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Reference hook `truncate-with-heal.sh`:** anonymized pattern to `TRUNCATE` via `kubectl exec` while healing a StatefulSet when the pod/container is unavailable on a degraded cluster (retry budget; no skip). Doc: [run/docs/truncate-heal-on-degraded.md](run/docs/truncate-heal-on-degraded.md).
+
 ## [0.1.17] - 2026-09-27
 
 ### Changed
