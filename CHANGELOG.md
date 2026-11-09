@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.18] - 2026-11-08
+
+### Changed
+
+- **Upstream pin:** [kzero v1.1.4](https://github.com/hrodrig/kzero/releases/tag/v1.1.4) in in-cluster Job manifests, kind smoke defaults, **`docker run`** examples, and operator docs (Go **1.27.3** / **`x/net` v0.60.0** security patch; was **v1.1.3**).
+
 ## [0.1.17] - 2026-09-27
 
 ### Changed
@@ -187,7 +193,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Docker Compose**, **`run/common/`**, Helm chart / **`run/kubernetes/`**, and Compose CI workflow — **kzero** is intended to run on hosts with real **`kubectl`**, not as a bundled Compose or in-cluster chart story.
 
-[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.17...HEAD
+[Unreleased]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.18...HEAD
+[0.1.18]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.17...v0.1.18
 [0.1.17]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.16...v0.1.17
 [0.1.16]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.15...v0.1.16
 [0.1.15]: https://github.com/hrodrig/kzero-selfhosted/compare/v0.1.14...v0.1.15
