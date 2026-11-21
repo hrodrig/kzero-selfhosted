@@ -1,6 +1,6 @@
 # Notifications — full reset example
 
-How to exercise **Slack** notifications with **[kzero v1.1.4](https://github.com/hrodrig/kzero/releases/tag/v1.1.4)** and the **full-reset-example** profile (namespace **`kzero-demo`** on a lab cluster).
+How to exercise **Slack** notifications with **[kzero v1.1.5](https://github.com/hrodrig/kzero/releases/tag/v1.1.5)** and the **full-reset-example** profile (namespace **`kzero-demo`** on a lab cluster).
 
 ---
 
@@ -29,7 +29,7 @@ Attachments use color by outcome:
 | Success | `good` | **`kzero completed`** |
 | Failure | `danger` | **`kzero failed`** |
 
-Fields typically include **Cluster**, **Client**, **Context**, **User**, **Mode**, **Duration**. Footer: **`kzero v1.1.4`** (or your installed version). Watchdog trips use title **`kzero stalled`** (**`pipeline.stalled`** event).
+Fields typically include **Cluster**, **Client**, **Context**, **User**, **Mode**, **Duration**. Footer: **`kzero v1.1.5`** (or your installed version). Watchdog trips use title **`kzero stalled`** (**`pipeline.stalled`** event).
 
 ---
 
